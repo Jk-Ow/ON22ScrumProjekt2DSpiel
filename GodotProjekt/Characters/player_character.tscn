@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://crblx0dm6xdi4"]
 
 [ext_resource type="Script" path="res://Code/player_character.gd" id="1_a4t8y"]
-[ext_resource type="Texture2D" uid="uid://d08ey3f4vih2r" path="res://GrafikenUndAssets/Characters/mainCharacterFuchs.png" id="2_68lrk"]
+[ext_resource type="Texture2D" uid="uid://c1gwj8nvw2h0t" path="res://GrafikenUndAssets/Characters/mainCharacterFuchs.png" id="2_68lrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_famgv"]
 size = Vector2(8, 17)
