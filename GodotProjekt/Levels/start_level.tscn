@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://du8gcpi7dngyw"]
+[gd_scene load_steps=9 format=3 uid="uid://du8gcpi7dngyw"]
 
 [ext_resource type="PackedScene" uid="uid://crblx0dm6xdi4" path="res://Characters/player_character.tscn" id="1_egkg7"]
-[ext_resource type="Texture2D" uid="uid://dx7lba4lwa7yj" path="res://GrafikenUndAssets/TileMaps/SandTiles_Gras_vollständig.png" id="2_tvreu"]
-[ext_resource type="Texture2D" uid="uid://ctewectekbayw" path="res://GrafikenUndAssets/TileMaps/Gras_Tilemap.png" id="3_emane"]
-[ext_resource type="Texture2D" uid="uid://bx0y8e2rfns06" path="res://GrafikenUndAssets/TileMaps/Meertile_Animiert.png" id="4_8bk5s"]
-[ext_resource type="Texture2D" uid="uid://dollye4gv2if5" path="res://GrafikenUndAssets/TileMaps/Animated-Meer-Sand-Tilemap.png" id="5_81ikw"]
+[ext_resource type="Texture2D" uid="uid://b78sl0elpy3t" path="res://GrafikenUndAssets/TileMaps/SandTiles_Gras_vollständig.png" id="2_tvreu"]
+[ext_resource type="Texture2D" uid="uid://cpfyt8g0cwxai" path="res://GrafikenUndAssets/TileMaps/Gras_Tilemap.png" id="3_emane"]
+[ext_resource type="Texture2D" uid="uid://d1mqrjkxf0c33" path="res://GrafikenUndAssets/TileMaps/Animated-Meer-Sand-Tilemap.png" id="5_81ikw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah63r"]
 texture = ExtResource("2_tvreu")
@@ -169,13 +168,6 @@ texture_region_size = Vector2i(32, 32)
 4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:4/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqrii"]
-texture = ExtResource("4_8bk5s")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fgt3i"]
 texture = ExtResource("5_81ikw")
 texture_region_size = Vector2i(32, 32)
@@ -224,7 +216,6 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ah63r")
 sources/1 = SubResource("TileSetAtlasSource_bf1sc")
-sources/2 = SubResource("TileSetAtlasSource_aqrii")
 sources/3 = SubResource("TileSetAtlasSource_fgt3i")
 
 [node name="startLevel" type="Node2D"]
@@ -232,7 +223,6 @@ sources/3 = SubResource("TileSetAtlasSource_fgt3i")
 [node name="playerCharacter" parent="." instance=ExtResource("1_egkg7")]
 z_index = 10
 motion_mode = 1
-move_speed = 300.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="playerCharacter"]
 remote_path = NodePath("../../Camera2D")

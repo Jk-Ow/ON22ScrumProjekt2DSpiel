@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var move_speed : float = 25
+@export var walk_speed : float = 30
 @export var running_speed : float = 50
 
 
@@ -18,9 +18,8 @@ func _physics_process(_delta):
 		$AnimationTree.set("parameters/Idle/blend_position", input_direction)
 		$AnimationTree.set("parameters/Walk/blend_position", input_direction)
 
-		
-	if(Input.get_action_strength("run") > 0):
+	if(Input.get_action_strength("run") != 0):
 		velocity = input_direction * running_speed
 	else:
-		velocity = input_direction * move_speed
+		velocity = input_direction * walk_speed
 	move_and_slide()
