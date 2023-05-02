@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://du8gcpi7dngyw"]
 
 [ext_resource type="PackedScene" uid="uid://crblx0dm6xdi4" path="res://Characters/player_character.tscn" id="1_egkg7"]
-[ext_resource type="Texture2D" uid="uid://dck35rjjbxwa0" path="res://GrafikenUndAssets/TileMaps/SandTiles_Gras_vollständig.png" id="2_tvreu"]
-[ext_resource type="Texture2D" uid="uid://bet2ppefxugpi" path="res://GrafikenUndAssets/TileMaps/Gras_Tilemap.png" id="3_emane"]
-[ext_resource type="Texture2D" uid="uid://cvfaodgimhp1s" path="res://GrafikenUndAssets/TileMaps/Meertile_Animiert.png" id="4_8bk5s"]
+[ext_resource type="Texture2D" uid="uid://bkn28v0sudvu1" path="res://GrafikenUndAssets/TileMaps/SandTiles_Gras_vollständig.png" id="2_tvreu"]
+[ext_resource type="Texture2D" uid="uid://ctewectekbayw" path="res://GrafikenUndAssets/TileMaps/Gras_Tilemap.png" id="3_emane"]
+[ext_resource type="Texture2D" uid="uid://bx0y8e2rfns06" path="res://GrafikenUndAssets/TileMaps/Meertile_Animiert.png" id="4_8bk5s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah63r"]
 texture = ExtResource("2_tvreu")
