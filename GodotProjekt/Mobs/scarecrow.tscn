@@ -1,10 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://6gd5apc0b7c5"]
+[gd_scene load_steps=10 format=3 uid="uid://6gd5apc0b7c5"]
 
-[ext_resource type="Texture2D" uid="uid://duffn4kifuk32" path="res://GrafikenUndAssets/Mobs/Scarecrow.png" id="1_p342l"]
+[ext_resource type="Texture2D" uid="uid://bgkgi41tcdbu5" path="res://GrafikenUndAssets/Mobs/Scarecrow.png" id="1_p342l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nk0s6"]
 radius = 8.0
 height = 28.0
+
+[sub_resource type="Animation" id="Animation_54mjt"]
+resource_name = "Idle_front"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_n52tb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s3lps"]
+_data = {
+"Idle_front": SubResource("Animation_54mjt"),
+"RESET": SubResource("Animation_n52tb")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3ylt"]
+animation = &"Idle_front"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j64xq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_oggi8"]
+states/Idle_front/node = SubResource("AnimationNodeAnimation_a3ylt")
+states/Idle_front/position = Vector2(344, 95)
+transitions = ["Start", "Idle_front", SubResource("AnimationNodeStateMachineTransition_j64xq")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_i6bk4"]
 
 [node name="scarecrow" type="StaticBody2D"]
 
@@ -17,3 +67,12 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_nk0s6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s3lps")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
+tree_root = SubResource("AnimationNodeStateMachine_oggi8")
+anim_player = NodePath("..")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_i6bk4")

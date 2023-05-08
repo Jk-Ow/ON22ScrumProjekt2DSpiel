@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://crblx0dm6xdi4"]
 
 [ext_resource type="Script" path="res://Code/player_character.gd" id="1_a4t8y"]
-[ext_resource type="Texture2D" uid="uid://bh22muowdml4s" path="res://GrafikenUndAssets/Characters/Fuchs_Idle_Walk_Spritesheet.png" id="2_ndmb3"]
+[ext_resource type="Texture2D" uid="uid://dfuaqjcqrrfdw" path="res://GrafikenUndAssets/Characters/Fuchs_Idle_Walk_Spritesheet.png" id="2_ndmb3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_famgv"]
 size = Vector2(9, 18)
