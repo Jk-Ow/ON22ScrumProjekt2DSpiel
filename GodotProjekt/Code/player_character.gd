@@ -5,6 +5,7 @@ extends CharacterBody2D
 var cooldown = true;
 var current_weapon_damage = 20
 signal attacking
+var health = 100
 
 
 func _physics_process(_delta):
@@ -21,7 +22,6 @@ func _physics_process(_delta):
 		$AnimationTree.set("parameters/Idle/blend_position", input_direction)
 		$AnimationTree.set("parameters/Walk/blend_position", input_direction)
 	attack()
-	print(cooldown)
 	if(Input.get_action_strength("run") != 0):
 		velocity = input_direction * running_speed
 	else:
@@ -34,7 +34,7 @@ func attack():
 		#start cooldown timer
 		cooldown = false
 		$attack_cooldown.start()
-		#set atack variable in global
+		#emit signal so mobs can react
 		emit_signal("attacking")
 
 
@@ -44,3 +44,8 @@ func _on_attack_cooldown_timeout():
 	
 func player():
 	pass
+
+
+func _on_scarecrow_mob_attacking():
+	health -= 10
+	print(health)
