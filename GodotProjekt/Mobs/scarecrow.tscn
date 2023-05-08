@@ -1,13 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://6gd5apc0b7c5"]
+[gd_scene load_steps=7 format=3 uid="uid://6gd5apc0b7c5"]
 
+[ext_resource type="Script" path="res://Code/scarecrow.gd" id="1_isjor"]
 [ext_resource type="Texture2D" uid="uid://duffn4kifuk32" path="res://GrafikenUndAssets/Mobs/Scarecrow.png" id="1_p342l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nk0s6"]
 radius = 8.0
 height = 28.0
 
+[sub_resource type="Animation" id="Animation_ptw7n"]
+resource_name = "hurt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_l1vok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y146m"]
+_data = {
+"RESET": SubResource("Animation_l1vok"),
+"hurt": SubResource("Animation_ptw7n")
+}
+
 [node name="scarecrow" type="StaticBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_isjor")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_as_relative = false
@@ -19,3 +58,6 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_nk0s6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y146m")
+}
