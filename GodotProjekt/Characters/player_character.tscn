@@ -230,9 +230,11 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_xpja6"]
 
 [node name="playerCharacter" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_a4t8y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_as_relative = false
 texture = ExtResource("2_ndmb3")
 hframes = 4
 vframes = 4

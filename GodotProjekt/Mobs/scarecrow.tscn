@@ -7,8 +7,10 @@ radius = 8.0
 height = 28.0
 
 [node name="scarecrow" type="StaticBody2D"]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_as_relative = false
 texture = ExtResource("1_p342l")
 hframes = 2
 
