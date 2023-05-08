@@ -69,7 +69,7 @@ libraries = {
 }
 
 [node name="attack_cooldown" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 
 [node name="reaction_delay" type="Timer" parent="."]
 wait_time = 0.1

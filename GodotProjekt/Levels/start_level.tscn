@@ -314,7 +314,6 @@ position = Vector2(35, -25)
 z_index = -1
 tile_set = SubResource("TileSet_uinqw")
 cell_quadrant_size = 32
-collision_visibility_mode = 1
 format = 2
 layer_0/name = "Wasser"
 layer_0/z_index = -1
