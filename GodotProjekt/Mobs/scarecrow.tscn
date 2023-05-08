@@ -1,133 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://6gd5apc0b7c5"]
+[gd_scene load_steps=5 format=3 uid="uid://cm50lhqaohbs5"]
 
 [ext_resource type="Script" path="res://Code/scarecrow.gd" id="1_isjor"]
 [ext_resource type="Texture2D" uid="uid://duffn4kifuk32" path="res://GrafikenUndAssets/Mobs/Scarecrow.png" id="1_p342l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghd86"]
-size = Vector2(12, 19)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7sv4b"]
+radius = 6.0
+height = 24.0
 
-[sub_resource type="Animation" id="Animation_n52tb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_s3lps"]
-_data = {
-"Idle_front": SubResource("Animation_54mjt"),
-"RESET": SubResource("Animation_n52tb")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3ylt"]
-animation = &"Idle_front"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j64xq"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_oggi8"]
-states/Idle_front/node = SubResource("AnimationNodeAnimation_a3ylt")
-states/Idle_front/position = Vector2(344, 95)
-transitions = ["Start", "Idle_front", SubResource("AnimationNodeStateMachineTransition_j64xq")]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_i6bk4"]
-
-[sub_resource type="Animation" id="Animation_ptw7n"]
-resource_name = "hurt"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-
-[sub_resource type="Animation" id="Animation_l1vok"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_y146m"]
-_data = {
-"RESET": SubResource("Animation_l1vok"),
-"hurt": SubResource("Animation_ptw7n")
-}
-
-[sub_resource type="Animation" id="Animation_ptw7n"]
-resource_name = "hurt"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-
-[sub_resource type="Animation" id="Animation_l1vok"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_y146m"]
-_data = {
-"RESET": SubResource("Animation_l1vok"),
-"hurt": SubResource("Animation_ptw7n")
-}
+[sub_resource type="CircleShape2D" id="CircleShape2D_wgwyp"]
+radius = 15.8114
 
 [node name="scarecrow" type="StaticBody2D"]
-y_sort_enabled = true
 script = ExtResource("1_isjor")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_as_relative = false
 texture = ExtResource("1_p342l")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.5)
-shape = SubResource("RectangleShape2D_ghd86")
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_7sv4b")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wgwyp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_y146m")
-}
