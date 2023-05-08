@@ -2,9 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bgkgi41tcdbu5" path="res://GrafikenUndAssets/Mobs/Scarecrow.png" id="1_p342l"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nk0s6"]
-radius = 8.0
-height = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghd86"]
+size = Vector2(12, 19)
 
 [sub_resource type="Animation" id="Animation_54mjt"]
 resource_name = "Idle_front"
@@ -63,8 +62,8 @@ texture = ExtResource("1_p342l")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_nk0s6")
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_ghd86")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
