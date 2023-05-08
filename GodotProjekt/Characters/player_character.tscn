@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://crblx0dm6xdi4"]
 
 [ext_resource type="Script" path="res://Code/player_character.gd" id="1_a4t8y"]
-[ext_resource type="Texture2D" uid="uid://dfuaqjcqrrfdw" path="res://GrafikenUndAssets/Characters/Fuchs_Idle_Walk_Spritesheet.png" id="2_ndmb3"]
+[ext_resource type="Texture2D" uid="uid://bh22muowdml4s" path="res://GrafikenUndAssets/Characters/Fuchs_Idle_Walk_Spritesheet.png" id="2_ndmb3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_famgv"]
 size = Vector2(9, 18)
@@ -188,7 +188,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_w1pji")
 blend_point_2/pos = Vector2(0, -1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_etedn")
 blend_point_3/pos = Vector2(0, 1)
-blend_mode = 1
+blend_mode = 2
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_81iug"]
 animation = &"Walk_left"
@@ -213,6 +213,7 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_um210")
 blend_point_3/pos = Vector2(0, 1.1)
 min_space = Vector2(-1.1, -1.1)
 max_space = Vector2(1.1, 1.1)
+blend_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5m4li"]
 advance_mode = 2
@@ -258,13 +259,13 @@ libraries = {
 "": SubResource("AnimationLibrary_h76i1")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_6tpba")
-anim_player = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_xpja6")
-parameters/Idle/blend_position = Vector2(0.016, 0.956332)
-parameters/Walk/blend_position = Vector2(0, 0.994323)
+parameters/Idle/blend_position = Vector2(-0.029552, -0.790393)
+parameters/Walk/blend_position = Vector2(0.676358, -0.11048)
 
 [node name="attack_cooldown" type="Timer" parent="."]
 wait_time = 0.5

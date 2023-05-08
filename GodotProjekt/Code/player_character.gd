@@ -15,7 +15,7 @@ func _physics_process(_delta):
 	input_direction = input_direction.normalized()
 	
 	if input_direction == Vector2.ZERO:
-		$AnimationPlayer/AnimationTree.get("parameters/playback").travel("Idle")
+		$AnimationTree.get("parameters/playback").travel("Idle")
 	else:
 		$AnimationTree.get("parameters/playback").travel("Walk")
 		$AnimationTree.set("parameters/Idle/blend_position", input_direction)
@@ -41,3 +41,6 @@ func attack():
 func _on_attack_cooldown_timeout():
 	$attack_cooldown.stop()
 	cooldown = true
+	
+func player():
+	pass
