@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://b0se0hwpv45r7"]
 
-[ext_resource type="Texture2D" uid="uid://dpq4o8n3uo0ol" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
+[ext_resource type="Texture2D" uid="uid://bihle8g5dfm6g" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui8i0"]
 size = Vector2(15.0186, 18.8766)
@@ -355,8 +355,8 @@ libraries = {
 "": SubResource("AnimationLibrary_clu0m")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_co2qv")
-anim_player = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_jpbj0")

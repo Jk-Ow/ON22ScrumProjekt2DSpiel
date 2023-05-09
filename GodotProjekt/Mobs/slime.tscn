@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dnu0br3r56y32"]
 
-[ext_resource type="Texture2D" uid="uid://cj5tytj73ljev" path="res://GrafikenUndAssets/Mobs/Slime_Spritesheet.png" id="1_n410h"]
+[ext_resource type="Texture2D" uid="uid://ygiilf3f5yvn" path="res://GrafikenUndAssets/Mobs/Slime_Spritesheet.png" id="1_n410h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0aijy"]
 size = Vector2(27, 23)
@@ -258,8 +258,8 @@ libraries = {
 "": SubResource("AnimationLibrary_vod3l")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_dxy4n")
-anim_player = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_yii8t")
