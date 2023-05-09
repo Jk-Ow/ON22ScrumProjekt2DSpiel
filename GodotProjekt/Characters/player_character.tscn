@@ -342,11 +342,11 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6tpba"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_poyk2")
-states/Attack/position = Vector2(560, 73)
+states/Attack/position = Vector2(559, 72)
 states/End/position = Vector2(737, 139)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_jv4vg")
 states/Idle/position = Vector2(338, 150)
-states/Start/position = Vector2(197, 139)
+states/Start/position = Vector2(219, 126)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_h42rg")
 states/Walk/position = Vector2(501, 144)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5m4li"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_0ghxi"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3e6b0")]
@@ -384,11 +384,10 @@ tree_root = SubResource("AnimationNodeStateMachine_6tpba")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_xpja6")
-parameters/Attack/blend_position = Vector2(0.00479996, 0.80786)
+parameters/Attack/blend_position = Vector2(0, 0.344978)
 parameters/Idle/blend_position = Vector2(0, 0.0305676)
 parameters/Walk/blend_position = Vector2(0.676358, -0.11048)
 
 [node name="attack_cooldown" type="Timer" parent="."]
-wait_time = 0.2
 
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
