@@ -3,7 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://cj5tytj73ljev" path="res://GrafikenUndAssets/Mobs/Slime_Spritesheet.png" id="1_n410h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0aijy"]
-size = Vector2(26, 23)
+size = Vector2(27, 23)
+
+[sub_resource type="Animation" id="Animation_kdf7u"]
+resource_name = "Idle_back"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 13]
+}
 
 [sub_resource type="Animation" id="Animation_ewrle"]
 resource_name = "Idle_front"
@@ -19,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_8f3wo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_mslo6"]
@@ -68,9 +69,23 @@ tracks/0/keys = {
 "values": [8, 9]
 }
 
-[sub_resource type="Animation" id="Animation_kdf7u"]
-resource_name = "Idle_back"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_8f3wo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ubk1f"]
+resource_name = "alert_back"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,7 +96,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [12, 13]
+"values": [12, 14]
 }
 
 [sub_resource type="Animation" id="Animation_1x02l"]
@@ -129,8 +144,8 @@ tracks/0/keys = {
 "values": [8, 10]
 }
 
-[sub_resource type="Animation" id="Animation_ubk1f"]
-resource_name = "alert_back"
+[sub_resource type="Animation" id="Animation_yyrfs"]
+resource_name = "death"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -141,7 +156,22 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [12, 14]
+"values": [16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_xxfh7"]
+resource_name = "hurt_back"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 15]
 }
 
 [sub_resource type="Animation" id="Animation_6qbwy"]
@@ -189,36 +219,6 @@ tracks/0/keys = {
 "values": [8, 11]
 }
 
-[sub_resource type="Animation" id="Animation_xxfh7"]
-resource_name = "hurt_back"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [12, 15]
-}
-
-[sub_resource type="Animation" id="Animation_yyrfs"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [16, 17]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vod3l"]
 _data = {
 "Idle_back": SubResource("Animation_kdf7u"),
@@ -250,7 +250,7 @@ hframes = 4
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4.5)
+position = Vector2(0.5, 4.5)
 shape = SubResource("RectangleShape2D_0aijy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
