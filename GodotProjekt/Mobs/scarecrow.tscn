@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cm50lhqaohbs5"]
 
 [ext_resource type="Script" path="res://Code/scarecrow.gd" id="1_isjor"]
-[ext_resource type="Texture2D" uid="uid://duffn4kifuk32" path="res://GrafikenUndAssets/Mobs/Scarecrow.png" id="1_p342l"]
+[ext_resource type="Texture2D" uid="uid://bgkgi41tcdbu5" path="res://GrafikenUndAssets/Mobs/Scarecrow.png" id="1_p342l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7sv4b"]
 radius = 6.0
