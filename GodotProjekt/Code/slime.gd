@@ -15,7 +15,7 @@ func _process(_delta):
 		direction = (global.player.get_global_position() - self.get_global_position())
 		direction = direction.normalized()
 		velocity = direction * speed
-	move_and_slide()
+		move_and_slide()
 
 func attack_player():
 	if(cooldown and player_in_range):
