@@ -35,7 +35,7 @@ func _on_attack_cooldown_timeout():
 func _on_attack_zone_body_entered(body):
 	if(body.has_method("player")):
 		player_in_range = true
-		$AnimationTree.set()
+		#$AnimationTree.set()
 
 
 func _on_attack_zone_body_exited(body):
