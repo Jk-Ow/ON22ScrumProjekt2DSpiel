@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca3r145kv8vj"]
+
+[ext_resource type="Texture2D" uid="uid://c08vkl3d88k7r" path="res://GrafikenUndAssets/veggi/health_plant.png" id="1_h4d2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dqj2"]
+size = Vector2(3, 8)
+
+[sub_resource type="Animation" id="Animation_sqfxw"]
+resource_name = "blossom"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_e737f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kebkt"]
+resource_name = "dead"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vi7ay"]
+_data = {
+"RESET": SubResource("Animation_e737f"),
+"blossom": SubResource("Animation_sqfxw"),
+"dead": SubResource("Animation_kebkt")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qkrem"]
+height = 26.0
+
+[node name="health_plant" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h4d2y")
+hframes = 4
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 12)
+shape = SubResource("RectangleShape2D_4dqj2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vi7ay")
+}
+
+[node name="harvest_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="harvest_area"]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_qkrem")
