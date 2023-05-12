@@ -49,3 +49,8 @@ func player():
 func _on_scarecrow_mob_attacking():
 	health -= 10
 	print(health)
+
+
+func _on_slime_mob_attacking():
+	health -= 10
+	print(health)
