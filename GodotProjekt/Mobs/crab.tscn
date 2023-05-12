@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://b0se0hwpv45r7"]
 
-[ext_resource type="Texture2D" uid="uid://bihle8g5dfm6g" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
+[ext_resource type="Texture2D" uid="uid://cctyijv8a1828" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui8i0"]
 size = Vector2(15.0186, 18.8766)

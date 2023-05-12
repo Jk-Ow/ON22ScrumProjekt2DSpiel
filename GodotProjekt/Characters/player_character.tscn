@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://crblx0dm6xdi4"]
 
 [ext_resource type="Script" path="res://Code/player_character.gd" id="1_a4t8y"]
-[ext_resource type="Texture2D" uid="uid://dfuaqjcqrrfdw" path="res://GrafikenUndAssets/Characters/Fuchs_Idle_Walk_Spritesheet.png" id="2_ndmb3"]
+[ext_resource type="Texture2D" uid="uid://clrvch4fmtrtu" path="res://GrafikenUndAssets/Characters/Fuchs_Idle_Walk_Spritesheet.png" id="2_ndmb3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_famgv"]
 size = Vector2(9, 18)
@@ -236,6 +236,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="playerCharacter" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_a4t8y")
+running_speed = 80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_as_relative = false
