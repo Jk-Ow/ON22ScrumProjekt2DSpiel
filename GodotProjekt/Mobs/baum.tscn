@@ -1,17 +1,71 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn8q6ie77s88h"]
+[gd_scene load_steps=8 format=3 uid="uid://dn8q6ie77s88h"]
 
 [ext_resource type="Texture2D" uid="uid://cs87qkeu4u804" path="res://GrafikenUndAssets/Mobs/Baum_Spritesheet.png" id="1_27o7n"]
+[ext_resource type="Script" path="res://Code/baum.gd" id="2_61c5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyaip"]
 size = Vector2(19, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scsjk"]
+radius = 73.0
+
+[sub_resource type="Animation" id="Animation_36jgl"]
+resource_name = "Idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_58f3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xew3d"]
+_data = {
+"Idle": SubResource("Animation_36jgl"),
+"RESET": SubResource("Animation_58f3l")
+}
 
 [node name="BaumSpritesheet" type="Sprite2D"]
 texture = ExtResource("1_27o7n")
 hframes = 5
 vframes = 2
+script = ExtResource("2_61c5e")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0.5, 11)
 shape = SubResource("RectangleShape2D_vyaip")
+
+[node name="EngageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EngageArea"]
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_scsjk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xew3d")
+}
