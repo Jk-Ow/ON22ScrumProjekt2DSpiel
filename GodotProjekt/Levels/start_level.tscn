@@ -619,7 +619,7 @@ y_sort_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_68dn0")
-volume_db = -45.148
+volume_db = -40.0
 autoplay = true
 
 [node name="health_plant" parent="." instance=ExtResource("13_fecos")]
