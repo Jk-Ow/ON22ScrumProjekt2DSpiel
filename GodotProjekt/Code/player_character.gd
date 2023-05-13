@@ -6,6 +6,7 @@ var cooldown = true;
 var current_weapon_damage = 20
 signal attacking
 var health = 100
+var last_direction
 
 
 func _physics_process(_delta):
@@ -13,6 +14,8 @@ func _physics_process(_delta):
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
+	if(input_direction != Vector2.ZERO):
+		last_direction = input_direction
 	input_direction = input_direction.normalized()
 	if cooldown:
 		if input_direction == Vector2.ZERO:
@@ -36,7 +39,7 @@ func attack():
 	input_direction = input_direction.normalized()
 	if(Input.is_action_just_pressed("attack") and cooldown):
 		$AnimationTree.get("parameters/playback").travel("Attack")
-		$AnimationTree.set("parameters/Attack/blend_position", input_direction)
+		$AnimationTree.set("parameters/Attack/blend_position", last_direction)
 		#play attack animation
 		#start cooldown timer
 		cooldown = false
