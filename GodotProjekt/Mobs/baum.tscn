@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn8q6ie77s88h"]
+
+[ext_resource type="Texture2D" uid="uid://cs87qkeu4u804" path="res://GrafikenUndAssets/Mobs/Baum_Spritesheet.png" id="1_27o7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyaip"]
+size = Vector2(19, 24)
+
+[node name="BaumSpritesheet" type="Sprite2D"]
+texture = ExtResource("1_27o7n")
+hframes = 5
+vframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 11)
+shape = SubResource("RectangleShape2D_vyaip")
