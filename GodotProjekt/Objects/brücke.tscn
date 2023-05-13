@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn8fuq3iww0l0"]
+
+[ext_resource type="Texture2D" uid="uid://4jqucxrtdatv" path="res://GrafikenUndAssets/TileMaps/Brücke_Beide.png" id="1_8ycw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cafr4"]
+size = Vector2(16, 33)
+
+[node name="BrückeBeide" type="Sprite2D"]
+position = Vector2(-734, 272)
+texture = ExtResource("1_8ycw2")
+vframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(29, 0.5)
+shape = SubResource("RectangleShape2D_cafr4")
