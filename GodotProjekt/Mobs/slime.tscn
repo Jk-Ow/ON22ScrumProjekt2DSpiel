@@ -249,6 +249,7 @@ radius = 85.6154
 radius = 9.0
 
 [node name="slime" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_u2b5x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

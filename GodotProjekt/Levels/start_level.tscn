@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bkiyromymxwbm"]
+[gd_scene load_steps=21 format=3 uid="uid://bkiyromymxwbm"]
 
 [ext_resource type="Script" path="res://Code/global.gd" id="1_dh73u"]
 [ext_resource type="PackedScene" uid="uid://cm50lhqaohbs5" path="res://Mobs/scarecrow.tscn" id="1_dy3ry"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dnu0br3r56y32" path="res://Mobs/slime.tscn" id="7_lk5pg"]
 [ext_resource type="PackedScene" uid="uid://cn8fuq3iww0l0" path="res://Objects/brücke.tscn" id="11_8srs6"]
 [ext_resource type="AudioStream" uid="uid://dwulk5iuhymda" path="res://GrafikenUndAssets/Sounds/Hintergrundmusik/ES_Arcane Happenings - Eden Avery.mp3" id="13_68dn0"]
+[ext_resource type="PackedScene" uid="uid://ca3r145kv8vj" path="res://Objects/healthPlant.tscn" id="13_fecos"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah63r"]
 texture = ExtResource("2_tvreu")
@@ -552,8 +553,7 @@ metadata/_edit_lock_ = true
 [node name="playerCharacter" parent="." instance=ExtResource("1_egkg7")]
 z_index = -1
 z_as_relative = false
-position = Vector2(27, 254)
-motion_mode = 1
+position = Vector2(88, 155)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="playerCharacter"]
 remote_path = NodePath("../../Camera2D")
@@ -564,7 +564,7 @@ position = Vector2(38, 20)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_as_relative = false
-position = Vector2(27, 254)
+position = Vector2(88, 155)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
@@ -620,6 +620,9 @@ y_sort_enabled = true
 stream = ExtResource("13_68dn0")
 volume_db = -45.148
 autoplay = true
+
+[node name="health_plant" parent="." instance=ExtResource("13_fecos")]
+position = Vector2(125, 78)
 
 [connection signal="attacking" from="playerCharacter" to="scarecrow" method="_on_player_character_attacking"]
 [connection signal="attacking" from="playerCharacter" to="slime" method="_on_player_character_attacking"]

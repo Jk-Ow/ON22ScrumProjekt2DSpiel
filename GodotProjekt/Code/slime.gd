@@ -19,7 +19,7 @@ func _process(_delta):
 
 func attack_player():
 	if(cooldown and player_in_range):
-		emit_signal("mob_attacking")
+		mob_attacking.emit()
 		cooldown = false
 		$attack_cooldown.start()
 

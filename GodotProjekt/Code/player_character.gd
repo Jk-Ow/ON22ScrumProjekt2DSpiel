@@ -7,9 +7,18 @@ var current_weapon_damage = 20
 signal attacking
 var health = 100
 var last_direction
+var health_plants = 10
+var heal_cooldown = true
 
 
 func _physics_process(_delta):
+	if((Input.get_action_strength("heal") != 0)&&health_plants > 0 && heal_cooldown):
+		health_plants -= 1
+		health += 30
+		heal_cooldown = false
+		$heal_cooldown.start()
+		if(health > 100):
+			health = 100
 	var input_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -32,19 +41,15 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func attack():
-	var input_direction = Vector2(
-		Input.get_action_strength("right") - Input.get_action_strength("left"),
-		Input.get_action_strength("down") - Input.get_action_strength("up")
-	)
-	input_direction = input_direction.normalized()
-	if(Input.is_action_just_pressed("attack") and cooldown):
-		$AnimationTree.get("parameters/playback").travel("Attack")
-		$AnimationTree.set("parameters/Attack/blend_position", last_direction)
-		#play attack animation
-		#start cooldown timer
-		cooldown = false
-		$attack_cooldown.start()
-		emit_signal("attacking")
+	if(cooldown):
+		if(Input.is_action_just_pressed("attack") and cooldown):
+			$AnimationTree.get("parameters/playback").travel("Attack")
+			$AnimationTree.set("parameters/Attack/blend_position", last_direction)
+			#play attack animation
+			#start cooldown timer
+			cooldown = false
+			$attack_cooldown.start()
+			attacking.emit()
 
 
 func _on_attack_cooldown_timeout():
@@ -62,3 +67,9 @@ func _on_scarecrow_mob_attacking():
 func _on_slime_mob_attacking():
 	health -= 10
 	print(health)
+func _on_give_health_plant():
+	
+
+
+func _on_heal_cooldown_timeout():
+	heal_cooldown = true

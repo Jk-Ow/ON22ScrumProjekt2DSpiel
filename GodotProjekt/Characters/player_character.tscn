@@ -359,7 +359,10 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="playerCharacter" type="CharacterBody2D"]
 y_sort_enabled = true
+motion_mode = 1
 script = ExtResource("1_a4t8y")
+walk_speed = null
+running_speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_as_relative = false
@@ -396,7 +399,10 @@ parameters/Walk/blend_position = Vector2(0.676358, -0.11048)
 wait_time = 0.5
 one_shot = true
 
+[node name="heal_cooldown" type="Timer" parent="."]
+
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="heal_cooldown" to="." method="_on_heal_cooldown_timeout"]

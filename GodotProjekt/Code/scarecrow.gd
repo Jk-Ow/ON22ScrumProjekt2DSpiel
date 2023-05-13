@@ -12,7 +12,7 @@ func _physics_process(_delta):
 
 func attack_player():
 	if(cooldown and aware_of_player):
-		emit_signal("mob_attacking")
+		mob_attacking.emit()
 		cooldown = false
 		$attack_cooldown.start()
 
