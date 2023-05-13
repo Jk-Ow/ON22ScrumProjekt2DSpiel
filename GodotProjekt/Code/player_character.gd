@@ -12,7 +12,7 @@ var heal_cooldown = true
 
 
 func _physics_process(_delta):
-	if((Input.get_action_strength("heal") != 0)&&health_plants > 0 && heal_cooldown):
+	if(Input.is_action_just_pressed("heal") and health_plants > 0 and heal_cooldown):
 		health_plants -= 1
 		health += 30
 		heal_cooldown = false
@@ -67,9 +67,9 @@ func _on_scarecrow_mob_attacking():
 func _on_slime_mob_attacking():
 	health -= 10
 	print(health)
-func _on_give_health_plant():
 	
-
+func _on_give_health_plant():
+	health_plants += 1
 
 func _on_heal_cooldown_timeout():
 	heal_cooldown = true

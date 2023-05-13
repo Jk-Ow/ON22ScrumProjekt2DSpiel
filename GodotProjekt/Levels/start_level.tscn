@@ -624,6 +624,9 @@ autoplay = true
 [node name="health_plant" parent="." instance=ExtResource("13_fecos")]
 position = Vector2(125, 78)
 
+[node name="health_plant2" parent="." instance=ExtResource("13_fecos")]
+position = Vector2(69, 252)
+
 [connection signal="attacking" from="playerCharacter" to="scarecrow" method="_on_player_character_attacking"]
 [connection signal="attacking" from="playerCharacter" to="slime" method="_on_player_character_attacking"]
 [connection signal="mob_attacking" from="scarecrow" to="playerCharacter" method="_on_scarecrow_mob_attacking"]

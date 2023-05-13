@@ -2,12 +2,16 @@ extends StaticBody2D
 signal give_health_plant
 var blossoming = true
 var player_close = false
+
 func _ready():
-	global.player.tscn.connect("character_attacking",self,"_on_player_character_attacking")
-	self.connect("give_health_plant",global.player,"_on_give_health_plant")
-	self.regrow_time.connect("timeout",self,"_on_regrow_time_timeout")
-	self.harvest_area.connect("area_body_entered",self,"_on_harvest_area_body_entered")
-	self.harvest_area.connect("area_body_exited",self,"_on_harvest_area_body_exited")
+	$AnimationPlayer.play("blossom")
+	var harvest = get_node("harvest_area")
+	var regrow = get_node("regrow_time")
+	global.player.attacking.connect(_on_player_character_attacking)
+	#connect("give_health_plant",global.player,"_on_give_health_plant")
+	regrow.timeout.connect(_on_regrow_time_timeout)
+	harvest.body_entered.connect(_on_harvest_area_body_entered)
+	harvest.body_exited.connect(_on_harvest_area_body_exited)
 
 func _on_player_character_attacking():
 	if(blossoming && player_close):

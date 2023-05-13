@@ -361,8 +361,6 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_a4t8y")
-walk_speed = null
-running_speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_as_relative = false
