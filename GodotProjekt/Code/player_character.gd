@@ -44,12 +44,10 @@ func attack():
 		#start cooldown timer
 		cooldown = false
 		$attack_cooldown.start()
-		#emit signal so mobs can react
 		emit_signal("attacking")
 
 
 func _on_attack_cooldown_timeout():
-	$attack_cooldown.stop()
 	cooldown = true
 	
 func player():
