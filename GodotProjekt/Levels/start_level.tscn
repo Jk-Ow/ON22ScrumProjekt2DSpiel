@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bkiyromymxwbm"]
+[gd_scene load_steps=21 format=3 uid="uid://bkiyromymxwbm"]
 
 [ext_resource type="Script" path="res://Code/global.gd" id="1_dh73u"]
 [ext_resource type="PackedScene" uid="uid://cm50lhqaohbs5" path="res://Mobs/scarecrow.tscn" id="1_dy3ry"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dnu0br3r56y32" path="res://Mobs/slime.tscn" id="7_lk5pg"]
 [ext_resource type="PackedScene" uid="uid://cn8fuq3iww0l0" path="res://Objects/brücke.tscn" id="11_8srs6"]
 [ext_resource type="PackedScene" uid="uid://h6cr0ncajfxf" path="res://Objects/baum.tscn" id="12_rq1lh"]
+[ext_resource type="AudioStream" uid="uid://017wvrgsc0n4" path="res://GrafikenUndAssets/Sounds/Hintergrundmusik/ES_Arcane Happenings - Eden Avery.mp3" id="13_68dn0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah63r"]
 texture = ExtResource("2_tvreu")
@@ -539,6 +540,11 @@ y_sort_enabled = true
 
 [node name="Baum" parent="." instance=ExtResource("12_rq1lh")]
 position = Vector2(-72, 8)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_68dn0")
+volume_db = -45.148
+autoplay = true
 
 [connection signal="attacking" from="playerCharacter" to="scarecrow" method="_on_player_character_attacking"]
 [connection signal="attacking" from="playerCharacter" to="slime" method="_on_player_character_attacking"]
