@@ -619,7 +619,7 @@ position = Vector2(-134, 134)
 [node name="Brücke" parent="." instance=ExtResource("11_8srs6")]
 y_sort_enabled = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_68dn0")
 volume_db = -40.0
 autoplay = true

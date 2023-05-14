@@ -8,5 +8,5 @@ var rng = RandomNumberGenerator.new()
 
 
 func _audio():
-	if ($AudioStreamPlayer.playing == false):
-		$AudioStreamPlayer.play()
+	if ($BackgroundMusic.playing == false):
+		$BackgroundMusic.play()

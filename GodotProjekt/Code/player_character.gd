@@ -33,6 +33,7 @@ func attack():
 	if(cooldown):
 		if(Input.is_action_just_pressed("attack") and cooldown):
 			$AnimationTree.get("parameters/playback").travel("Attack")
+			$AttackSound.play()
 			$AnimationTree.set("parameters/Attack/blend_position", last_direction)
 			#play attack animation
 			#start cooldown timer
@@ -55,6 +56,7 @@ func animate():
 			$AnimationTree.get("parameters/playback").travel("Idle")
 		else:
 			$AnimationTree.get("parameters/playback").travel("Walk")
+			$WalkSound.play()
 			$AnimationTree.set("parameters/Idle/blend_position", input_direction)
 			$AnimationTree.set("parameters/Walk/blend_position", input_direction)
 
