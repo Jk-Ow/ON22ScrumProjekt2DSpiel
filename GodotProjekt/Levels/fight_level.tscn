@@ -557,7 +557,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_pvh6g"]
@@ -669,16 +669,17 @@ position = Vector2(345, -431)
 [node name="Fuchs" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Fuchs"]
-position = Vector2(312, -429)
+position = Vector2(313, -434)
 texture = ExtResource("8_7bcbo")
 hframes = 4
-vframes = 6
+vframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fuchs"]
 position = Vector2(313, -426.5)
 shape = SubResource("RectangleShape2D_2l6d3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fuchs"]
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_3mwm5")
 }
@@ -702,3 +703,4 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_0wr0i")
+volume_db = -40.294

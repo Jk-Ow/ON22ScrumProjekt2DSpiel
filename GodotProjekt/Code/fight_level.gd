@@ -1,5 +1,5 @@
 extends Node2D
 
-func _audio():
+func _ready():
 	if ($AudioStreamPlayer.playing == false):
 		$AudioStreamPlayer.play()
