@@ -29,8 +29,8 @@ func _process(_delta):
 	if(health > 0):
 		move_to_player()
 		attack_player()
-		if(health <= 0):
-			self.queue_free()
+	if(health <= 0):
+		self.queue_free()
 
 func move_to_player():
 	if(aware_of_player):
