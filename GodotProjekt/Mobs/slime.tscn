@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://dnu0br3r56y32"]
 
-[ext_resource type="Texture2D" uid="uid://yuvad2htnaq" path="res://GrafikenUndAssets/Mobs/Slime_Spritesheet.png" id="1_n410h"]
+[ext_resource type="Texture2D" uid="uid://nfidelc2iu8r" path="res://GrafikenUndAssets/Mobs/Slime_Spritesheet.png" id="1_n410h"]
 [ext_resource type="Script" path="res://Code/slime.gd" id="1_u2b5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0aijy"]
@@ -248,7 +248,7 @@ radius = 85.6154
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x3fn"]
 radius = 9.0
 
-[node name="slime" type="CharacterBody2D"]
+[node name="slime" type="CharacterBody2D" groups=["enemy_slimes"]]
 motion_mode = 1
 script = ExtResource("1_u2b5x")
 
@@ -290,8 +290,5 @@ debug_color = Color(0.984314, 0, 0.337255, 0.419608)
 [node name="attack_cooldown" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="AttentionZone" to="." method="_on_attention_zone_body_entered"]
-[connection signal="body_exited" from="AttentionZone" to="." method="_on_attention_zone_body_exited"]
 [connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]
 [connection signal="body_exited" from="AttackZone" to="." method="_on_attack_zone_body_exited"]
-[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
