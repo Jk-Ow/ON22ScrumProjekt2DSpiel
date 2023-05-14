@@ -17,7 +17,7 @@ func _ready():
 	if(!harvest.body_exited.is_connected(_on_harvest_area_body_exited)):
 		harvest.body_exited.connect(_on_harvest_area_body_exited)
 
-func _on_player_character_attacking():
+func _on_player_character_attacking(_damage):
 	if(blossoming && player_close):
 		$AnimationPlayer.play("dead")
 		$regrow_time.start()

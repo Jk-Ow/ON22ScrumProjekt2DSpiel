@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dndna8dhjjrun"]
 
-[ext_resource type="Texture2D" uid="uid://dlsclu3iv380" path="res://GrafikenUndAssets/hud/heart_HUD.png" id="1_5rtde"]
+[ext_resource type="Texture2D" uid="uid://bb55i8y4xb1qd" path="res://GrafikenUndAssets/hud/heart_HUD.png" id="1_5rtde"]
 [ext_resource type="Script" path="res://Code/hud_standard.gd" id="1_ofc6r"]
-[ext_resource type="Texture2D" uid="uid://dx78j3h1mqo7e" path="res://GrafikenUndAssets/hud/sword_HUD.png" id="3_jtg76"]
-[ext_resource type="FontFile" uid="uid://dh0fw04pbub57" path="res://GrafikenUndAssets/hud/Pixeldust.ttf" id="3_lopxq"]
-[ext_resource type="Texture2D" uid="uid://bktgfwmiiarno" path="res://GrafikenUndAssets/hud/menu_HUD.png" id="4_bgsvg"]
+[ext_resource type="Texture2D" uid="uid://da7541dr4e7o" path="res://GrafikenUndAssets/hud/sword_HUD.png" id="3_jtg76"]
+[ext_resource type="FontFile" uid="uid://bcvohvobqq7o4" path="res://GrafikenUndAssets/hud/Pixeldust.ttf" id="3_lopxq"]
+[ext_resource type="Texture2D" uid="uid://bxmy4r68a0bm0" path="res://GrafikenUndAssets/hud/menu_HUD.png" id="4_bgsvg"]
 
 [node name="Node2D" type="CanvasLayer"]
 follow_viewport_scale = 0.25

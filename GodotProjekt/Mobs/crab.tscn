@@ -1,6 +1,6 @@
 [gd_scene load_steps=61 format=3 uid="uid://b0se0hwpv45r7"]
 
-[ext_resource type="Texture2D" uid="uid://lr5ovdy2a5j6" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
+[ext_resource type="Texture2D" uid="uid://cctyijv8a1828" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
 [ext_resource type="Script" path="res://Code/crab.gd" id="1_hxki0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui8i0"]
@@ -499,7 +499,7 @@ texture = ExtResource("1_dc3m8")
 hframes = 8
 vframes = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="solid_body" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -2.99379)
 scale = Vector2(1.2651, 0.901243)
 shape = SubResource("RectangleShape2D_ui8i0")
@@ -533,3 +533,7 @@ shape = SubResource("RectangleShape2D_w6rkc")
 
 [node name="attack_cooldown" type="Timer" parent="."]
 wait_time = 1.5
+
+[node name="respawn_timer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true

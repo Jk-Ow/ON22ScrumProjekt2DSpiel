@@ -1,9 +1,9 @@
 [gd_scene load_steps=49 format=3 uid="uid://crblx0dm6xdi4"]
 
 [ext_resource type="Script" path="res://Code/player_character.gd" id="1_a4t8y"]
-[ext_resource type="Texture2D" uid="uid://dkrg4ytewhsco" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="2_5utlh"]
-[ext_resource type="AudioStream" uid="uid://b2bw41rukpqqw" path="res://GrafikenUndAssets/Sounds/Kämpfen/Swoosh-cropped.mp3" id="3_yt3yb"]
-[ext_resource type="AudioStream" uid="uid://6kgfr6536s8u" path="res://GrafikenUndAssets/Sounds/Laufen/concrete-footsteps-6752.mp3" id="4_hq2ic"]
+[ext_resource type="Texture2D" uid="uid://bsdds1w2mxlny" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="2_5utlh"]
+[ext_resource type="AudioStream" uid="uid://cjyaw64jqm6cx" path="res://GrafikenUndAssets/Sounds/Kämpfen/Swoosh-cropped.mp3" id="3_yt3yb"]
+[ext_resource type="AudioStream" uid="uid://dn2qnbxprk02j" path="res://GrafikenUndAssets/Sounds/Laufen/concrete-footsteps-6752.mp3" id="4_hq2ic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_famgv"]
 size = Vector2(9, 18)

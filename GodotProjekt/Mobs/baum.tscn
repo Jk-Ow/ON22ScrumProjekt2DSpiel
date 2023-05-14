@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dn8q6ie77s88h"]
 
-[ext_resource type="Texture2D" uid="uid://cs87qkeu4u804" path="res://GrafikenUndAssets/Mobs/Baum_Spritesheet.png" id="1_27o7n"]
+[ext_resource type="Texture2D" uid="uid://bgblnynr4w0i6" path="res://GrafikenUndAssets/Mobs/Baum_Spritesheet.png" id="1_27o7n"]
 [ext_resource type="Script" path="res://Code/baum.gd" id="2_61c5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vyaip"]

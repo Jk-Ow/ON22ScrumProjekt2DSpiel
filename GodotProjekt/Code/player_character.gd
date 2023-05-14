@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var running_speed : float = 200
 var cooldown = true;
 var current_weapon_damage = 20
-signal attacking
+signal attacking(damage)
 signal update_health_plants(amount)
 signal update_health(remaining_health)
 var health = 100
@@ -24,10 +24,8 @@ func _ready():
 func _physics_process(_delta):
 	update_hud()
 	get_direction_and_speed()
-	animate()
-	attack()
-	heal()
-	move_and_slide()
+	play_walk_sound()
+	player()
 
 func attack():
 	if(cooldown):
@@ -39,7 +37,7 @@ func attack():
 			#start cooldown timer
 			cooldown = false
 			$attack_cooldown.start()
-			attacking.emit()
+			attacking.emit(current_weapon_damage)
 
 func heal():
 	if(Input.is_action_just_pressed("heal") and health_plants > 0 and heal_cooldown):
@@ -54,9 +52,9 @@ func animate():
 	if cooldown:
 		if input_direction == Vector2.ZERO:
 			$AnimationTree.get("parameters/playback").travel("Idle")
+			$WalkSound.stop()
 		else:
 			$AnimationTree.get("parameters/playback").travel("Walk")
-			$WalkSound.play()
 			$AnimationTree.set("parameters/Idle/blend_position", input_direction)
 			$AnimationTree.set("parameters/Walk/blend_position", input_direction)
 
@@ -72,7 +70,11 @@ func get_direction_and_speed():
 		velocity = input_direction * running_speed
 	else:
 		velocity = input_direction * walk_speed
-		
+
+func play_walk_sound():
+	if(input_direction != Vector2.ZERO and !$WalkSound.playing):
+		$WalkSound.play()
+
 func update_hud():
 	update_health_plants.emit(health_plants)
 	update_health.emit(health)
@@ -81,7 +83,10 @@ func _on_attack_cooldown_timeout():
 	cooldown = true
 	
 func player():
-	pass
+	animate()
+	attack()
+	heal()
+	move_and_slide()
 
 func _on_mob_attacking(damage):
 	health -= damage
