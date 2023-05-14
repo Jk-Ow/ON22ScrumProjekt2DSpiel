@@ -5,7 +5,8 @@ var cooldown = true
 var health = 100
 var speed = 120
 var direction
-signal mob_attacking
+var last_direction
+signal mob_attacking(damage)
 
 func _ready():
 	var attention_zone = get_node("AttentionZone")
@@ -25,9 +26,14 @@ func _ready():
 		attack_cooldown.timeout.connect(_on_attack_cooldown_timeout)
 
 func _process(_delta):
-	attack_player()
-	if(health <= 0):
-		self.queue_free()
+	if(health > 0):
+		move_to_player()
+		attack_player()
+		if(health <= 0):
+			self.queue_free()
+
+
+func move_to_player():
 	if(aware_of_player):
 		direction = (global.player.get_global_position() - self.get_global_position())
 		direction = direction.normalized()
@@ -36,8 +42,7 @@ func _process(_delta):
 
 func attack_player():
 	if(cooldown and player_in_range):
-		print("attacking_player")
-		mob_attacking.emit()
+		mob_attacking.emit(5)
 		cooldown = false
 		$attack_cooldown.start()
 
