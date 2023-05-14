@@ -547,6 +547,7 @@ sources/2 = SubResource("TileSetAtlasSource_6ktsw")
 [node name="startLevel" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
+scale = Vector2(4, 4)
 script = ExtResource("1_dh73u")
 metadata/_edit_horizontal_guides_ = []
 metadata/_edit_lock_ = true

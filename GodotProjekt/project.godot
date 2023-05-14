@@ -18,10 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 global="*res://Code/global.gd"
-
-[display]
-
-window/stretch/scale=4.0
+HudStandard="*res://HUDandMenu/hud_standard.tscn"
 
 [editor]
 

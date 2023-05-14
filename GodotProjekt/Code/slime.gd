@@ -3,7 +3,7 @@ var player_in_range = false
 var aware_of_player = false
 var cooldown = true
 var health = 100
-var speed = 30
+var speed = 120
 var direction
 signal mob_attacking
 
