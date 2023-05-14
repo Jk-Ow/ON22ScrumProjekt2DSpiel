@@ -7,11 +7,15 @@ func _ready():
 	$AnimationPlayer.play("blossom")
 	var harvest = get_node("harvest_area")
 	var regrow = get_node("regrow_time")
-	global.player.attacking.connect(_on_player_character_attacking)
+	if(!global.player.attacking.is_connected(_on_player_character_attacking)):
+		global.player.attacking.connect(_on_player_character_attacking)
 	#connect("give_health_plant",global.player,"_on_give_health_plant")
-	regrow.timeout.connect(_on_regrow_time_timeout)
-	harvest.body_entered.connect(_on_harvest_area_body_entered)
-	harvest.body_exited.connect(_on_harvest_area_body_exited)
+	if(!regrow.timeout.is_connected(_on_regrow_time_timeout)):
+		regrow.timeout.connect(_on_regrow_time_timeout)
+	if(!harvest.body_entered.is_connected(_on_harvest_area_body_entered)):
+		harvest.body_entered.connect(_on_harvest_area_body_entered)
+	if(!harvest.body_exited.is_connected(_on_harvest_area_body_exited)):
+		harvest.body_exited.connect(_on_harvest_area_body_exited)
 
 func _on_player_character_attacking():
 	if(blossoming && player_close):

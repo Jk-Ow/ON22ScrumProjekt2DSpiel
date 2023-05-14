@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ca3r145kv8vj"]
 
-[ext_resource type="Texture2D" uid="uid://b58jw7blrptw6" path="res://GrafikenUndAssets/veggi/health_plant.png" id="1_h4d2y"]
+[ext_resource type="Texture2D" uid="uid://c08vkl3d88k7r" path="res://GrafikenUndAssets/veggi/health_plant.png" id="1_h4d2y"]
 [ext_resource type="Script" path="res://Code/healthPlant.gd" id="1_ukuap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dqj2"]
@@ -65,7 +65,7 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qkrem"]
 height = 26.0
 
-[node name="health_plant" type="StaticBody2D"]
+[node name="health_plant" type="StaticBody2D" groups=["health_plants"]]
 script = ExtResource("1_ukuap")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -90,6 +90,3 @@ shape = SubResource("CapsuleShape2D_qkrem")
 
 [node name="regrow_time" type="Timer" parent="."]
 wait_time = 30.0
-
-[connection signal="body_entered" from="harvest_area" to="." method="_on_harvest_area_body_entered"]
-[connection signal="body_exited" from="harvest_area" to="." method="_on_harvest_area_body_exited"]
