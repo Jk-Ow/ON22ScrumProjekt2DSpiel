@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bkiyromymxwbm"]
+[gd_scene load_steps=23 format=3 uid="uid://bkiyromymxwbm"]
 
 [ext_resource type="Script" path="res://Code/global.gd" id="1_dh73u"]
 [ext_resource type="PackedScene" uid="uid://cm50lhqaohbs5" path="res://Mobs/scarecrow.tscn" id="1_dy3ry"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://dwulk5iuhymda" path="res://GrafikenUndAssets/Sounds/Hintergrundmusik/ES_Arcane Happenings - Eden Avery.mp3" id="13_68dn0"]
 [ext_resource type="PackedScene" uid="uid://ca3r145kv8vj" path="res://Objects/healthPlant.tscn" id="13_fecos"]
 [ext_resource type="PackedScene" path="res://Mobs/baum.tscn" id="14_wc4k0"]
+[ext_resource type="PackedScene" uid="uid://b0se0hwpv45r7" path="res://Mobs/crab.tscn" id="15_vu1vv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah63r"]
 texture = ExtResource("2_tvreu")
@@ -631,5 +632,8 @@ position = Vector2(69, 252)
 
 [node name="Baum" parent="." instance=ExtResource("14_wc4k0")]
 position = Vector2(391, -445)
+
+[node name="crab" parent="." instance=ExtResource("15_vu1vv")]
+position = Vector2(514.75, 384.75)
 
 [connection signal="attacking" from="playerCharacter" to="slime" method="_on_player_character_attacking"]

@@ -344,7 +344,8 @@ radius = 39.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6rkc"]
 size = Vector2(21, 16)
 
-[node name="crab" type="CharacterBody2D"]
+[node name="crab" type="CharacterBody2D" groups=["enemy"]]
+motion_mode = 1
 script = ExtResource("1_hxki0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

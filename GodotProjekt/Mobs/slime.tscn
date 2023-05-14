@@ -248,7 +248,7 @@ radius = 85.6154
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x3fn"]
 radius = 9.0
 
-[node name="slime" type="CharacterBody2D" groups=["enemy_slimes"]]
+[node name="slime" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 script = ExtResource("1_u2b5x")
 
