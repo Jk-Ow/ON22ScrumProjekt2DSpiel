@@ -15,6 +15,8 @@ func _on_fuchs_attack(damage):
 	print(health)
 	if (health <= 0) :
 		stateMachine.travel("Death")
+		await get_tree().create_timer(1.0).timeout
+		get_tree().change_scene_to_file("res://Levels/start_level.tscn")
 	await get_tree().create_timer(1.0).timeout
 	stateMachine.travel("Attack")
 	mob_attacking.emit(20)

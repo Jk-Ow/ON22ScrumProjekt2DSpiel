@@ -69,3 +69,5 @@ shape = SubResource("CircleShape2D_scsjk")
 libraries = {
 "": SubResource("AnimationLibrary_xew3d")
 }
+
+[connection signal="body_entered" from="EngageArea" to="." method="_on_engage_area_body_entered"]
