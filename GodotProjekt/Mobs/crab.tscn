@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://b0se0hwpv45r7"]
+[gd_scene load_steps=29 format=3 uid="uid://b0se0hwpv45r7"]
 
 [ext_resource type="Texture2D" uid="uid://cctyijv8a1828" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
+[ext_resource type="Script" path="res://Code/crab.gd" id="1_hxki0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui8i0"]
-size = Vector2(15.0186, 18.8766)
+size = Vector2(15.0186, 15.5479)
 
 [sub_resource type="Animation" id="Animation_d4ija"]
 resource_name = "Idle_back"
@@ -337,7 +338,14 @@ _data = {
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_jpbj0"]
 
-[node name="crab" type="StaticBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_wxvmf"]
+radius = 39.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6rkc"]
+size = Vector2(21, 16)
+
+[node name="crab" type="CharacterBody2D"]
+script = ExtResource("1_hxki0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -10)
@@ -346,7 +354,7 @@ hframes = 8
 vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -4.49378)
+position = Vector2(-0.5, -2.99379)
 scale = Vector2(1.2651, 0.901243)
 shape = SubResource("RectangleShape2D_ui8i0")
 
@@ -360,3 +368,18 @@ tree_root = SubResource("AnimationNodeStateMachine_co2qv")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_jpbj0")
+
+[node name="AttentionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttentionZone"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_wxvmf")
+
+[node name="AttackZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_w6rkc")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 1.5
