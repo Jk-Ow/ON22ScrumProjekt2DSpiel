@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bpeeeigb4rj10"]
+[gd_scene load_steps=25 format=3 uid="uid://bpeeeigb4rj10"]
 
 [ext_resource type="Texture2D" uid="uid://b27cxtwc4qulu" path="res://GrafikenUndAssets/TileMaps/SandTiles_Gras_vollständig.png" id="1_6owqb"]
 [ext_resource type="Script" path="res://Code/fight_level.gd" id="1_lnd4k"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bweg32krpl4wh" path="res://GrafikenUndAssets/veggi/vegetation.png" id="5_vin0h"]
 [ext_resource type="Texture2D" uid="uid://c5yl3i0vx6k6" path="res://GrafikenUndAssets/TileMaps/Animated-Meer-Sand-Tilemap.png" id="6_1uqww"]
 [ext_resource type="Texture2D" uid="uid://dkrg4ytewhsco" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="8_7bcbo"]
+[ext_resource type="AudioStream" uid="uid://duh3sucwfhw1h" path="res://GrafikenUndAssets/Sounds/Hintergrundmusik/ES_Grey Ghost - Autohacker.mp3" id="10_0wr0i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah63r"]
 texture = ExtResource("1_6owqb")
@@ -698,3 +699,6 @@ shape = SubResource("RectangleShape2D_2l6d3")
 libraries = {
 "": SubResource("AnimationLibrary_qr2im")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_0wr0i")
