@@ -7,9 +7,20 @@ var current_weapon_damage = 20
 signal attacking
 var health = 100
 var last_direction
-var health_plants = 10
+var health_plants = 1
 var heal_cooldown = true
 
+func _ready():
+	print(global.enemy_slimes)
+	for item in global.enemy_slimes:
+		if(!item.mob_attacking.is_connected(_on_slime_mob_attacking)):
+			item.mob_attacking.connect(_on_slime_mob_attacking)
+	for item in global.health_plants:
+		if(!item.give_health_plant.is_connected(_on_give_health_plant)):
+			item.give_health_plant.connect(_on_give_health_plant)
+	#for item in global.enemy_crabs:
+	#	if(!item.mob_attacking.is_connected(_on_crab_mob_attacking)):
+	#		item.mob_attacking.connect(_on_crab_mob_attacking)
 
 func _physics_process(_delta):
 	if(Input.is_action_just_pressed("heal") and health_plants > 0 and heal_cooldown):
@@ -58,18 +69,17 @@ func _on_attack_cooldown_timeout():
 func player():
 	pass
 
-
-func _on_scarecrow_mob_attacking():
-	health -= 10
-	print(health)
-
-
 func _on_slime_mob_attacking():
-	health -= 10
+	health -= 5
 	print(health)
+	#needs function to update HUD
+	
+func _on_crab_mob_attacking():
+	health -= 10
 	
 func _on_give_health_plant():
 	health_plants += 1
+	print(health_plants)
 
 func _on_heal_cooldown_timeout():
 	heal_cooldown = true
