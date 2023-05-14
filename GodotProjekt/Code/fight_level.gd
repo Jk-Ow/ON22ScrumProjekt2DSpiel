@@ -7,5 +7,5 @@ func _ready():
 	$Baum/AnimationPlayer.play("Idle")
 
 func _physics_process(_delta):
-	if (Input.is_action_just_pressed("attack")):
+	pass#if (Input.is_action_just_pressed("attack")):
 		

@@ -1,17 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn8fuq3iww0l0"]
+[gd_scene load_steps=6 format=3 uid="uid://cn8fuq3iww0l0"]
 
-[ext_resource type="Texture2D" uid="uid://4jqucxrtdatv" path="res://GrafikenUndAssets/TileMaps/Brücke_Beide.png" id="1_8ycw2"]
+[ext_resource type="Texture2D" uid="uid://d0sth4owq8ocf" path="res://GrafikenUndAssets/TileMaps/Brücke_Beide.png" id="1_8ycw2"]
+[ext_resource type="Script" path="res://Code/bruecke.gd" id="2_58136"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cafr4"]
 size = Vector2(17, 34)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1uhnb"]
+radius = 3.99998
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bpept"]
+radius = 4.00003
+height = 79.0
+
 [node name="BrückeBeide" type="Sprite2D"]
+y_sort_enabled = true
 position = Vector2(-734, 272)
 texture = ExtResource("1_8ycw2")
 vframes = 2
+script = ExtResource("2_58136")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="broken" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="broken"]
 position = Vector2(29.5, 0)
 shape = SubResource("RectangleShape2D_cafr4")
+
+[node name="rim1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rim1"]
+position = Vector2(-1, -20)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_1uhnb")
+
+[node name="rim2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rim2"]
+position = Vector2(-1.5, 13)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_bpept")

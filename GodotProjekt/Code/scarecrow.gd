@@ -2,13 +2,14 @@ extends StaticBody2D
 var player_in_range = false
 
 func _ready():
-	if(!global.player.attacking.is_connected(_on_player_character_attacking)):
-		global.player.attacking.connect(_on_player_character_attacking)
+	var player = get_node("/root/startLevel/playerCharacter")
+	if(!player.attacking.is_connected(_on_player_character_attacking)):
+		player.attacking.connect(_on_player_character_attacking)
 
 func _physics_process(_delta):
 	pass
 
-func _on_player_character_attacking():
+func _on_player_character_attacking(_damage):
 	if(player_in_range):
 		$AnimationPlayer.play("hurt")
 

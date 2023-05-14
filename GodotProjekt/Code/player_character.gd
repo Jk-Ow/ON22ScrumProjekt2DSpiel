@@ -5,19 +5,23 @@ extends CharacterBody2D
 var cooldown = true;
 var current_weapon_damage = 20
 signal attacking(damage)
-signal update_health_plants(amount)
-signal update_health(remaining_health)
 var health = 100
 var input_direction
 var last_direction
 var health_plants = 1
 var heal_cooldown = true
+@onready var root_node = get_node("/root/startLevel")
+@onready var enemy_nodes = root_node.get_tree().get_nodes_in_group("enemy")
+@onready var health_plant_nodes = root_node.get_tree().get_nodes_in_group("health_plants")
 
 func _ready():
-	for item in global.enemy:
+	if(global.player_position != Vector2.ZERO):
+		self.position = global.player_position
+	health_plants = global.health_plant_amount
+	for item in enemy_nodes:
 		if(!item.mob_attacking.is_connected(_on_mob_attacking)):
 			item.mob_attacking.connect(_on_mob_attacking)
-	for item in global.health_plants:
+	for item in health_plant_nodes:
 		if(!item.give_health_plant.is_connected(_on_give_health_plant)):
 			item.give_health_plant.connect(_on_give_health_plant)
 
@@ -26,6 +30,8 @@ func _physics_process(_delta):
 	get_direction_and_speed()
 	play_walk_sound()
 	player()
+	if(health<=0):
+		die()
 
 func attack():
 	if(cooldown):
@@ -76,8 +82,11 @@ func play_walk_sound():
 		$WalkSound.play()
 
 func update_hud():
-	update_health_plants.emit(health_plants)
-	update_health.emit(health)
+	global.health_plant_amount = health_plants
+	global.health = health
+
+func die():
+	pass
 
 func _on_attack_cooldown_timeout():
 	cooldown = true

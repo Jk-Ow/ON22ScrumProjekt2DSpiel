@@ -7,9 +7,9 @@ func _ready():
 	$AnimationPlayer.play("blossom")
 	var harvest = get_node("harvest_area")
 	var regrow = get_node("regrow_time")
-	if(!global.player.attacking.is_connected(_on_player_character_attacking)):
-		global.player.attacking.connect(_on_player_character_attacking)
-	#connect("give_health_plant",global.player,"_on_give_health_plant")
+	var player = get_node("/root/startLevel/playerCharacter")
+	if(!player.attacking.is_connected(_on_player_character_attacking)):
+		player.attacking.connect(_on_player_character_attacking)
 	if(!regrow.timeout.is_connected(_on_regrow_time_timeout)):
 		regrow.timeout.connect(_on_regrow_time_timeout)
 	if(!harvest.body_entered.is_connected(_on_harvest_area_body_entered)):

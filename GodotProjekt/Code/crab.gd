@@ -11,6 +11,7 @@ signal mob_attacking(damage)
 @onready var state_machine = $AnimationTree.get("parameters/playback")
 @onready var start_position = self.position
 @onready var solid_body = get_node("solid_body")
+@onready var player = get_node("/root/startLevel/playerCharacter")
 
 func _ready():
 	var attention_zone = get_node("AttentionZone")
@@ -18,8 +19,8 @@ func _ready():
 	var attack_cooldown = get_node("attack_cooldown")
 	var respawn_timer = get_node("respawn_timer")
 	var animation_tree = get_node("AnimationTree")
-	if(!global.player.attacking.is_connected(_on_player_character_attacking)):
-		global.player.attacking.connect(_on_player_character_attacking)
+	if(!player.attacking.is_connected(_on_player_character_attacking)):
+		player.attacking.connect(_on_player_character_attacking)
 	if(!attention_zone.body_entered.is_connected(_on_attention_zone_body_entered)):
 		attention_zone.body_entered.connect(_on_attention_zone_body_entered)
 	if(!attention_zone.body_exited.is_connected(_on_attention_zone_body_exited)):
@@ -48,7 +49,7 @@ func _process(_delta):
 func move_to_player():
 	if(alive):
 		if(aware_of_player):
-			direction = (global.player.get_global_position() - self.get_global_position())
+			direction = (player.get_global_position() - self.get_global_position())
 			direction = direction.normalized()
 			velocity = direction * speed
 			update_animation_parameters(direction)
