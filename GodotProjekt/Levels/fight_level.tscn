@@ -1,14 +1,14 @@
 [gd_scene load_steps=24 format=3 uid="uid://bpeeeigb4rj10"]
 
-[ext_resource type="Texture2D" uid="uid://ddrugkvk8mffs" path="res://GrafikenUndAssets/TileMaps/SandTiles_Gras_vollständig.png" id="1_6owqb"]
+[ext_resource type="Texture2D" uid="uid://b27cxtwc4qulu" path="res://GrafikenUndAssets/TileMaps/SandTiles_Gras_vollständig.png" id="1_6owqb"]
 [ext_resource type="Script" path="res://Code/fight_level.gd" id="1_lnd4k"]
-[ext_resource type="Texture2D" uid="uid://bgblnynr4w0i6" path="res://GrafikenUndAssets/Mobs/Baum_Spritesheet.png" id="1_q4dmg"]
-[ext_resource type="Texture2D" uid="uid://dcl1jnnojcjj1" path="res://GrafikenUndAssets/TileMaps/Gras_Tilemap.png" id="2_mt1kn"]
-[ext_resource type="Texture2D" uid="uid://cm5vw4ny5kemi" path="res://GrafikenUndAssets/TileMaps/Steinweg.png" id="3_hwbnb"]
-[ext_resource type="Texture2D" uid="uid://q2oqtnwj8iq2" path="res://GrafikenUndAssets/veggi/baum.png" id="4_ijupp"]
-[ext_resource type="Texture2D" uid="uid://dg30md4bu4pq0" path="res://GrafikenUndAssets/veggi/vegetation.png" id="5_vin0h"]
-[ext_resource type="Texture2D" uid="uid://c81dgyy6mi844" path="res://GrafikenUndAssets/TileMaps/Animated-Meer-Sand-Tilemap.png" id="6_1uqww"]
-[ext_resource type="Texture2D" uid="uid://bsdds1w2mxlny" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="8_7bcbo"]
+[ext_resource type="Texture2D" uid="uid://cs87qkeu4u804" path="res://GrafikenUndAssets/Mobs/Baum_Spritesheet.png" id="1_q4dmg"]
+[ext_resource type="Texture2D" uid="uid://cialux4xuc8va" path="res://GrafikenUndAssets/TileMaps/Gras_Tilemap.png" id="2_mt1kn"]
+[ext_resource type="Texture2D" uid="uid://jf0ehfo3ljdo" path="res://GrafikenUndAssets/TileMaps/Steinweg.png" id="3_hwbnb"]
+[ext_resource type="Texture2D" uid="uid://bmgem21p6tagt" path="res://GrafikenUndAssets/veggi/baum.png" id="4_ijupp"]
+[ext_resource type="Texture2D" uid="uid://bweg32krpl4wh" path="res://GrafikenUndAssets/veggi/vegetation.png" id="5_vin0h"]
+[ext_resource type="Texture2D" uid="uid://c5yl3i0vx6k6" path="res://GrafikenUndAssets/TileMaps/Animated-Meer-Sand-Tilemap.png" id="6_1uqww"]
+[ext_resource type="Texture2D" uid="uid://dkrg4ytewhsco" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="8_7bcbo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah63r"]
 texture = ExtResource("1_6owqb")
@@ -619,6 +619,7 @@ _data = {
 }
 
 [node name="Fight_level" type="Node2D"]
+scale = Vector2(4, 4)
 script = ExtResource("1_lnd4k")
 
 [node name="TileMap" type="TileMap" parent="."]
