@@ -84,9 +84,10 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_bgsvg")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 4.0
-offset_top = -4.0
-offset_right = 174.0
-offset_bottom = 22.0
-text = "Hellllaooaosodsodasd"
+[node name="current_health" type="Label" parent="."]
+offset_left = 1000.0
+offset_top = 16.0
+offset_right = 1170.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("3_lopxq")
+text = "Health: 100"
