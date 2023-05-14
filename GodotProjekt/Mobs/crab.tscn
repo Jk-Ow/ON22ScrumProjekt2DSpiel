@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://b0se0hwpv45r7"]
+[gd_scene load_steps=61 format=3 uid="uid://b0se0hwpv45r7"]
 
-[ext_resource type="Texture2D" uid="uid://cctyijv8a1828" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
+[ext_resource type="Texture2D" uid="uid://lr5ovdy2a5j6" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
 [ext_resource type="Script" path="res://Code/crab.gd" id="1_hxki0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui8i0"]
@@ -334,7 +334,152 @@ _data = {
 "hurt_right": SubResource("Animation_bpmv2")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_64x7d"]
+animation = &"alert_front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dupan"]
+animation = &"alert_back"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l8mw0"]
+animation = &"alert_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7xvoh"]
+animation = &"alert_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ml8k8"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_64x7d")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_dupan")
+blend_point_1/pos = Vector2(0, -0.9)
+blend_point_2/node = SubResource("AnimationNodeAnimation_l8mw0")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_7xvoh")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eai78"]
+animation = &"attack_front_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k87mp"]
+animation = &"attack_front_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wtnso"]
+animation = &"attack_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8a4yp"]
+animation = &"attack_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lvhuj"]
+animation = &"attack_back_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ynuqg"]
+animation = &"attack_back_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_o8aqw"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_eai78")
+blend_point_0/pos = Vector2(0.1, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_k87mp")
+blend_point_1/pos = Vector2(-0.1, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_wtnso")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_8a4yp")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_lvhuj")
+blend_point_4/pos = Vector2(-0.1, -0.9)
+blend_point_5/node = SubResource("AnimationNodeAnimation_ynuqg")
+blend_point_5/pos = Vector2(0.1, -0.9)
+blend_mode = 2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qnnhl"]
+animation = &"hurt_front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r8vnv"]
+animation = &"hurt_back"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8tfwt"]
+animation = &"hurt_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_og41u"]
+animation = &"hurt_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_qfdg4"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_qnnhl")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_r8vnv")
+blend_point_1/pos = Vector2(0, -0.9)
+blend_point_2/node = SubResource("AnimationNodeAnimation_8tfwt")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_og41u")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rfgg3"]
+animation = &"Idle_front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iigbk"]
+animation = &"Idle_back"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i015m"]
+animation = &"Idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rrlki"]
+animation = &"Idle_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_00ex6"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_rfgg3")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_iigbk")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_i015m")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_rrlki")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vnisj"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x08qr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pbd1x"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t456v"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pa3lg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n50pi"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a12ap"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0htq3"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ulrnu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_she34"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_co2qv"]
+states/Alert_all/node = SubResource("AnimationNodeBlendSpace2D_ml8k8")
+states/Alert_all/position = Vector2(406, 189)
+states/Attack_all/node = SubResource("AnimationNodeBlendSpace2D_o8aqw")
+states/Attack_all/position = Vector2(340, 21)
+states/End/position = Vector2(902, 100)
+states/Hurt_all/node = SubResource("AnimationNodeBlendSpace2D_qfdg4")
+states/Hurt_all/position = Vector2(260, 189)
+states/Idle_all/node = SubResource("AnimationNodeBlendSpace2D_00ex6")
+states/Idle_all/position = Vector2(340, 100)
+states/death/node = SubResource("AnimationNodeAnimation_vnisj")
+states/death/position = Vector2(727, 100)
+transitions = ["Start", "Idle_all", SubResource("AnimationNodeStateMachineTransition_x08qr"), "Idle_all", "Alert_all", SubResource("AnimationNodeStateMachineTransition_pbd1x"), "Alert_all", "Idle_all", SubResource("AnimationNodeStateMachineTransition_t456v"), "Idle_all", "Hurt_all", SubResource("AnimationNodeStateMachineTransition_pa3lg"), "Hurt_all", "Idle_all", SubResource("AnimationNodeStateMachineTransition_n50pi"), "Idle_all", "death", SubResource("AnimationNodeStateMachineTransition_a12ap"), "death", "End", SubResource("AnimationNodeStateMachineTransition_0htq3"), "Idle_all", "Attack_all", SubResource("AnimationNodeStateMachineTransition_ulrnu"), "Attack_all", "Idle_all", SubResource("AnimationNodeStateMachineTransition_she34")]
+graph_offset = Vector2(7, -10)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_jpbj0"]
 
@@ -369,6 +514,10 @@ tree_root = SubResource("AnimationNodeStateMachine_co2qv")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_jpbj0")
+parameters/Alert_all/blend_position = Vector2(0, 0)
+parameters/Attack_all/blend_position = Vector2(-0.00160003, 0.00436687)
+parameters/Hurt_all/blend_position = Vector2(-0.00160003, 0.0106382)
+parameters/Idle_all/blend_position = Vector2(0, 0)
 
 [node name="AttentionZone" type="Area2D" parent="."]
 

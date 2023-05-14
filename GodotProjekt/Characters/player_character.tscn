@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://crblx0dm6xdi4"]
+[gd_scene load_steps=47 format=3 uid="uid://crblx0dm6xdi4"]
 
 [ext_resource type="Script" path="res://Code/player_character.gd" id="1_a4t8y"]
 [ext_resource type="Texture2D" uid="uid://dkrg4ytewhsco" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="2_5utlh"]
@@ -337,6 +337,12 @@ min_space = Vector2(-1.1, -1.1)
 max_space = Vector2(1.1, 1.1)
 blend_mode = 2
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_85wmu"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wl71l"]
+animation = &"hurt"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5m4li"]
 advance_mode = 2
 
@@ -344,16 +350,32 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3e6b0"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ghu0u"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8o8cm"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4325t"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ehysp"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6tpba"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_poyk2")
-states/Attack/position = Vector2(559, 72)
-states/End/position = Vector2(737, 139)
+states/Attack/position = Vector2(288, 42)
+states/End/position = Vector2(887, 126)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_jv4vg")
-states/Idle/position = Vector2(338, 150)
+states/Idle/position = Vector2(345, 131)
 states/Start/position = Vector2(219, 126)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_h42rg")
-states/Walk/position = Vector2(501, 144)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5m4li"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_0ghxi"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3e6b0")]
+states/Walk/position = Vector2(345, 210)
+states/death/node = SubResource("AnimationNodeAnimation_85wmu")
+states/death/position = Vector2(657, 128)
+states/hurt/node = SubResource("AnimationNodeAnimation_wl71l")
+states/hurt/position = Vector2(470, 42)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5m4li"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_0ghxi"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3e6b0"), "Idle", "hurt", SubResource("AnimationNodeStateMachineTransition_ghu0u"), "hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_8o8cm"), "Idle", "death", SubResource("AnimationNodeStateMachineTransition_4325t"), "death", "End", SubResource("AnimationNodeStateMachineTransition_ehysp")]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_xpja6"]
 
