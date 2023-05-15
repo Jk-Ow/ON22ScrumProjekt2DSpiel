@@ -1,7 +1,23 @@
-[gd_scene load_steps=17 format=3 uid="uid://0qpvj6jwhewb"]
+[gd_scene load_steps=18 format=3 uid="uid://0qpvj6jwhewb"]
 
 [ext_resource type="Script" path="res://Code/birdo_the_gourmet.gd" id="1_3b8ls"]
-[ext_resource type="Texture2D" uid="uid://ckkldmqrlau7g" path="res://GrafikenUndAssets/Mobs/birdo.png" id="2_08wc7"]
+[ext_resource type="Texture2D" uid="uid://dqu3p70xv7ns6" path="res://GrafikenUndAssets/Mobs/birdo.png" id="2_08wc7"]
+[ext_resource type="AudioStream" uid="uid://dh0ajlj6u1lxo" path="res://GrafikenUndAssets/Sounds/Vogelgezwitscher/birds-19624.mp3" id="3_4x2w0"]
+
+[sub_resource type="Animation" id="Animation_vd6bq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_b3y80"]
 resource_name = "idle"
@@ -18,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_vd6bq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_4dvgw"]
@@ -88,7 +89,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_02lgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygh74"]
-size = Vector2(8, 8)
+size = Vector2(5, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xtbid"]
 radius = 14.0
@@ -113,13 +114,19 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_02lgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 12)
+position = Vector2(-3.5, 13)
 shape = SubResource("RectangleShape2D_ygh74")
 
 [node name="AttentionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttentionArea"]
-position = Vector2(4, 10)
+position = Vector2(1, 10)
 shape = SubResource("CircleShape2D_xtbid")
+
+[node name="ChirpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4x2w0")
+volume_db = -15.0
+autoplay = true
+attenuation = 0.574349
 
 [connection signal="body_entered" from="AttentionArea" to="." method="_on_attention_area_body_entered"]

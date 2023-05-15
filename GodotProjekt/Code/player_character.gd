@@ -52,6 +52,7 @@ func heal():
 		$heal_cooldown.start()
 		if(global.health > starting_health):
 			global.health = starting_health
+		$HealSound.play()
 
 func animate():
 	if cooldown:
@@ -94,6 +95,7 @@ func player():
 
 func _on_mob_attacking(damage):
 	global.health -= damage
+	
 
 func _on_give_health_plant():
 	if (global.health_plant_amount < 10):

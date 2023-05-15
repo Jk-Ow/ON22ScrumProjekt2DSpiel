@@ -43,7 +43,6 @@ func _process(_delta):
 	else:
 		if(alive):
 			die()
-		
 
 
 func move_to_player():

@@ -1,9 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://crblx0dm6xdi4"]
+[gd_scene load_steps=50 format=3 uid="uid://crblx0dm6xdi4"]
 
 [ext_resource type="Script" path="res://Code/player_character.gd" id="1_a4t8y"]
 [ext_resource type="Texture2D" uid="uid://dkrg4ytewhsco" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="2_5utlh"]
 [ext_resource type="AudioStream" uid="uid://d2yoi6lj38lxd" path="res://GrafikenUndAssets/Sounds/Kämpfen/Swoosh-cropped.mp3" id="3_yt3yb"]
 [ext_resource type="AudioStream" uid="uid://ci887q7v1iv46" path="res://GrafikenUndAssets/Sounds/Laufen/concrete-footsteps-6752.mp3" id="4_hq2ic"]
+[ext_resource type="AudioStream" uid="uid://bdepc5oxraj7j" path="res://GrafikenUndAssets/Sounds/Heilen/mixkit-video-game-health-recharge-2837.wav" id="5_d0kjt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_famgv"]
 size = Vector2(9, 18)
@@ -430,7 +431,11 @@ volume_db = -15.0
 
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_hq2ic")
-volume_db = -10.0
+volume_db = -15.0
+
+[node name="HealSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_d0kjt")
+volume_db = -25.0
 
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
