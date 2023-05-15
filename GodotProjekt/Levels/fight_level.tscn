@@ -942,4 +942,5 @@ stream = ExtResource("10_0wr0i")
 volume_db = -30.0
 
 [connection signal="attack" from="Fuchs" to="Baum" method="_on_fuchs_attack"]
+[connection signal="animation_finished" from="Fuchs/AnimationTree" to="Fuchs" method="_on_animation_tree_animation_finished"]
 [connection signal="mob_attacking" from="Baum" to="Fuchs" method="_on_baum_mob_attacking"]
