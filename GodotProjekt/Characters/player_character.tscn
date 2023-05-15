@@ -366,18 +366,19 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6tpba"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_poyk2")
-states/Attack/position = Vector2(288, 42)
-states/End/position = Vector2(887, 126)
+states/Attack/position = Vector2(234, 42)
+states/End/position = Vector2(725, 131)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_jv4vg")
 states/Idle/position = Vector2(345, 131)
 states/Start/position = Vector2(219, 126)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_h42rg")
-states/Walk/position = Vector2(345, 210)
+states/Walk/position = Vector2(345, 218)
 states/death/node = SubResource("AnimationNodeAnimation_85wmu")
-states/death/position = Vector2(657, 128)
+states/death/position = Vector2(554, 131)
 states/hurt/node = SubResource("AnimationNodeAnimation_wl71l")
-states/hurt/position = Vector2(470, 42)
+states/hurt/position = Vector2(345, 42)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5m4li"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_0ghxi"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3e6b0"), "Idle", "hurt", SubResource("AnimationNodeStateMachineTransition_ghu0u"), "hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_8o8cm"), "Idle", "death", SubResource("AnimationNodeStateMachineTransition_4325t"), "death", "End", SubResource("AnimationNodeStateMachineTransition_ehysp")]
+graph_offset = Vector2(8.69915, -90.8386)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_xpja6"]
 

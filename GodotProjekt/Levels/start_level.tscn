@@ -556,18 +556,27 @@ metadata/_edit_lock_ = true
 [node name="playerCharacter" parent="." instance=ExtResource("1_egkg7")]
 z_index = -1
 z_as_relative = false
-position = Vector2(88, 155)
+position = Vector2(-191, 830.75)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="playerCharacter"]
 remote_path = NodePath("../../Camera2D")
 
+[node name="health_plant" parent="playerCharacter" instance=ExtResource("13_fecos")]
+position = Vector2(-214.356, -81.5372)
+
+[node name="health_plant" parent="playerCharacter/health_plant" instance=ExtResource("13_fecos")]
+position = Vector2(528.705, -264.519)
+
+[node name="health_plant" parent="playerCharacter/health_plant/health_plant" instance=ExtResource("13_fecos")]
+position = Vector2(-37.4576, 277.187)
+
 [node name="scarecrow" parent="." instance=ExtResource("1_dy3ry")]
 z_as_relative = false
-position = Vector2(38, 20)
+position = Vector2(-250.25, 408.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_as_relative = false
-position = Vector2(88, 155)
+position = Vector2(-191, 830.75)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
@@ -611,10 +620,31 @@ metadata/_edit_lock_ = true
 
 [node name="slime" parent="." instance=ExtResource("7_lk5pg")]
 z_as_relative = false
-position = Vector2(-53, -122)
+position = Vector2(62.75, -262.75)
+
+[node name="slime" parent="slime" instance=ExtResource("7_lk5pg")]
+position = Vector2(349.75, 196.5)
+
+[node name="crab" parent="slime/slime" instance=ExtResource("15_vu1vv")]
+position = Vector2(-282.75, 1081.25)
+
+[node name="crab" parent="slime/slime/crab" instance=ExtResource("15_vu1vv")]
+position = Vector2(-583.5, -25.25)
 
 [node name="slime2" parent="." instance=ExtResource("7_lk5pg")]
-position = Vector2(-134, 134)
+position = Vector2(-161.5, 280.25)
+
+[node name="slime" parent="slime2" instance=ExtResource("7_lk5pg")]
+position = Vector2(325.5, 321)
+
+[node name="health_plant" parent="slime2/slime" instance=ExtResource("13_fecos")]
+position = Vector2(-304.682, -37.5166)
+
+[node name="slime" parent="slime2/slime/health_plant" instance=ExtResource("7_lk5pg")]
+position = Vector2(-470.318, -239.483)
+
+[node name="slime" parent="slime2/slime/health_plant/slime" instance=ExtResource("7_lk5pg")]
+position = Vector2(100.75, -554.75)
 
 [node name="Brücke" parent="." instance=ExtResource("11_8srs6")]
 z_index = -2
@@ -625,7 +655,7 @@ volume_db = -40.0
 autoplay = true
 
 [node name="health_plant" parent="." instance=ExtResource("13_fecos")]
-position = Vector2(125, 78)
+position = Vector2(251.5, -63.25)
 
 [node name="health_plant2" parent="." instance=ExtResource("13_fecos")]
 position = Vector2(69, 252)
@@ -634,6 +664,45 @@ position = Vector2(69, 252)
 position = Vector2(391, -445)
 
 [node name="crab" parent="." instance=ExtResource("15_vu1vv")]
-position = Vector2(514.75, 384.75)
+position = Vector2(574.25, 339.5)
+
+[node name="crab" parent="crab" instance=ExtResource("15_vu1vv")]
+position = Vector2(-155.25, 438.75)
+
+[node name="crab" parent="crab/crab" instance=ExtResource("15_vu1vv")]
+position = Vector2(267.25, -910)
+
+[node name="crab" parent="crab/crab/crab" instance=ExtResource("15_vu1vv")]
+position = Vector2(-20.25, 219.5)
+
+[node name="crab" parent="crab/crab/crab/crab" instance=ExtResource("15_vu1vv")]
+position = Vector2(-939.75, 898.75)
+
+[node name="slime" parent="crab/crab/crab/crab/crab" instance=ExtResource("7_lk5pg")]
+position = Vector2(172.585, -1008.85)
+
+[node name="slime" parent="crab/crab/crab/crab/crab/slime" instance=ExtResource("7_lk5pg")]
+position = Vector2(410.915, 322.1)
+
+[node name="health_plant" parent="crab/crab/crab/crab/crab/slime/slime" instance=ExtResource("13_fecos")]
+position = Vector2(-1024.5, -640)
+
+[node name="health_plant" parent="crab/crab/crab/crab/crab/slime/slime/health_plant" instance=ExtResource("13_fecos")]
+position = Vector2(-18.5, -23.75)
+
+[node name="health_plant" parent="crab/crab/crab/crab/crab/slime/slime/health_plant/health_plant" instance=ExtResource("13_fecos")]
+position = Vector2(29.75, -23.25)
+
+[node name="health_plant" parent="crab/crab/crab/crab/crab/slime/slime/health_plant/health_plant/health_plant" instance=ExtResource("13_fecos")]
+position = Vector2(32, 26.25)
+
+[node name="health_plant" parent="crab/crab/crab/crab/crab/slime/slime/health_plant/health_plant/health_plant/health_plant" instance=ExtResource("13_fecos")]
+position = Vector2(199.66, 531.641)
+
+[node name="health_plant" parent="crab/crab/crab/crab/crab/slime/slime/health_plant/health_plant/health_plant/health_plant/health_plant" instance=ExtResource("13_fecos")]
+position = Vector2(281.34, -513.891)
+
+[node name="slime" parent="crab/crab/crab/crab/crab/slime/slime/health_plant/health_plant/health_plant/health_plant/health_plant/health_plant" instance=ExtResource("7_lk5pg")]
+position = Vector2(-105.75, 1008.5)
 
 [connection signal="attacking" from="playerCharacter" to="slime" method="_on_player_character_attacking"]
