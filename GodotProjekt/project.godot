@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Menu="*res://HUDandMenu/menu.tscn"
 global="*res://Code/global.gd"
 HudStandard="*res://HUDandMenu/hud_standard.tscn"
 

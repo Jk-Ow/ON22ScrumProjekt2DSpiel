@@ -2,6 +2,8 @@ extends Node2D
 
 var health_plant_amount = 0
 var health
+var show_menu = true
+var start_position = Vector2(-191, 830.75)
 var player_position = Vector2.ZERO
 var evil_tree_alive = true
 signal update_health_plants(amount:int)
@@ -13,6 +15,8 @@ signal update_health(health_remaining:int)
 
 func _ready():
 	player_position = player.position
+	print(get_tree().current_scene.name)
+	print(player.position)
 	
 func _process(_delta):
 	if(health > 100):

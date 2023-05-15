@@ -10,7 +10,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if(global.show_menu):
+		self.visible = false
+	else:
+		self.visible = true
 
 func _on_player_update_health_plants(amount):
 	$health_plants/health_plant_amount.text = str(amount)
