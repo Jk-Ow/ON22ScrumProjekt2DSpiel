@@ -7,5 +7,6 @@ extends Node2D
 @onready var enemy = base_level.get_tree().get_nodes_in_group("enemy")
 
 func _audio():
+	$BackgroundMusic.set_loop(true)
 	if ($BackgroundMusic.playing == false):
 		$BackgroundMusic.play()
