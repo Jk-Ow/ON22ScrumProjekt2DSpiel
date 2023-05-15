@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bkiyromymxwbm"]
+[gd_scene load_steps=24 format=3 uid="uid://bkiyromymxwbm"]
 
 [ext_resource type="Script" path="res://Code/start_level.gd" id="1_1mlvn"]
 [ext_resource type="PackedScene" uid="uid://cm50lhqaohbs5" path="res://Mobs/scarecrow.tscn" id="1_dy3ry"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ca3r145kv8vj" path="res://Objects/healthPlant.tscn" id="13_fecos"]
 [ext_resource type="PackedScene" uid="uid://dn8q6ie77s88h" path="res://Mobs/baum.tscn" id="14_wc4k0"]
 [ext_resource type="PackedScene" uid="uid://b0se0hwpv45r7" path="res://Mobs/crab.tscn" id="15_vu1vv"]
+[ext_resource type="PackedScene" uid="uid://0qpvj6jwhewb" path="res://Mobs/birdo_the_gourmet.tscn" id="16_1xwld"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah63r"]
 texture = ExtResource("2_tvreu")
@@ -705,5 +706,8 @@ position = Vector2(129.75, 1015)
 
 [node name="crab" parent="." instance=ExtResource("15_vu1vv")]
 position = Vector2(574.25, 339.5)
+
+[node name="BirdoTheGourmet" parent="." instance=ExtResource("16_1xwld")]
+position = Vector2(-123, 796.75)
 
 [connection signal="attacking" from="playerCharacter" to="slime" method="_on_player_character_attacking"]

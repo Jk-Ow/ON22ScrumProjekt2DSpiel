@@ -1,0 +1,125 @@
+[gd_scene load_steps=17 format=3 uid="uid://0qpvj6jwhewb"]
+
+[ext_resource type="Script" path="res://Code/birdo_the_gourmet.gd" id="1_3b8ls"]
+[ext_resource type="Texture2D" uid="uid://ckkldmqrlau7g" path="res://GrafikenUndAssets/Mobs/birdo.png" id="2_08wc7"]
+
+[sub_resource type="Animation" id="Animation_b3y80"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_vd6bq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4dvgw"]
+resource_name = "secrets"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oe6jl"]
+_data = {
+"RESET": SubResource("Animation_vd6bq"),
+"idle": SubResource("Animation_b3y80"),
+"secrets": SubResource("Animation_4dvgw")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ad6yi"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y0ouh"]
+animation = &"secrets"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xmqah"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yhefa"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0fscv"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pdqep"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nrs3y"]
+states/End/position = Vector2(727, 100)
+states/Start/position = Vector2(227, 100)
+states/idle/node = SubResource("AnimationNodeAnimation_ad6yi")
+states/idle/position = Vector2(368, 100)
+states/secrets/node = SubResource("AnimationNodeAnimation_y0ouh")
+states/secrets/position = Vector2(495, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_xmqah"), "idle", "secrets", SubResource("AnimationNodeStateMachineTransition_yhefa"), "secrets", "idle", SubResource("AnimationNodeStateMachineTransition_0fscv"), "secrets", "End", SubResource("AnimationNodeStateMachineTransition_pdqep")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_02lgh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygh74"]
+size = Vector2(8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtbid"]
+radius = 14.0
+
+[node name="BirdoTheGourmet" type="CharacterBody2D"]
+script = ExtResource("1_3b8ls")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_08wc7")
+flip_h = true
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oe6jl")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_nrs3y")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_02lgh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 12)
+shape = SubResource("RectangleShape2D_ygh74")
+
+[node name="AttentionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttentionArea"]
+position = Vector2(4, 10)
+shape = SubResource("CircleShape2D_xtbid")
+
+[connection signal="body_entered" from="AttentionArea" to="." method="_on_attention_area_body_entered"]
