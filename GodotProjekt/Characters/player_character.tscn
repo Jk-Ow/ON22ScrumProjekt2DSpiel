@@ -430,7 +430,7 @@ volume_db = -15.0
 
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_hq2ic")
-volume_db = -15.0
+volume_db = -10.0
 
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
