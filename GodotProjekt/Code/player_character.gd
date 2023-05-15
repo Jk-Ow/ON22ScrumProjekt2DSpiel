@@ -7,6 +7,7 @@ var current_weapon_damage = 20
 signal attacking(damage)
 var input_direction
 var last_direction
+var starting_health = 100
 var heal_cooldown = true
 @onready var root_node = get_node("/root/startLevel")
 @onready var enemy_nodes = root_node.get_tree().get_nodes_in_group("enemy")
@@ -21,6 +22,7 @@ func _ready():
 	for item in health_plant_nodes:
 		if(!item.give_health_plant.is_connected(_on_give_health_plant)):
 			item.give_health_plant.connect(_on_give_health_plant)
+	global.health = starting_health
 
 func _physics_process(_delta):
 	if(global.health>0):
@@ -48,8 +50,8 @@ func heal():
 		global.health += 30
 		heal_cooldown = false
 		$heal_cooldown.start()
-		if(global.health > 100):
-			global.health = 100
+		if(global.health > starting_health):
+			global.health = starting_health
 
 func animate():
 	if cooldown:
