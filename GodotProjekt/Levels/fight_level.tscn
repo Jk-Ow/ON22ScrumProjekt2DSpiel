@@ -687,7 +687,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Tree:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -703,7 +703,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Tree:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -719,7 +719,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Tree:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -736,7 +736,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Tree:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -751,7 +751,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Tree:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -868,6 +868,17 @@ position = Vector2(345, -431)
 [node name="Fuchs" type="StaticBody2D" parent="."]
 script = ExtResource("8_4x3hu")
 
+[node name="HealthBarFox" type="ProgressBar" parent="Fuchs"]
+modulate = Color(0.0980392, 0.407843, 0, 1)
+self_modulate = Color(0, 0.4, 0, 1)
+z_index = 5
+offset_left = 291.0
+offset_top = -458.0
+offset_right = 332.0
+offset_bottom = -453.0
+step = 1.0
+show_percentage = false
+
 [node name="Sprite2D" type="Sprite2D" parent="Fuchs"]
 position = Vector2(313, -434)
 texture = ExtResource("8_7bcbo")
@@ -893,7 +904,19 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_gq6ec")
 [node name="Baum" type="StaticBody2D" parent="."]
 script = ExtResource("10_tc7g5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Baum"]
+[node name="HealthBarTree" type="ProgressBar" parent="Baum"]
+modulate = Color(0.588235, 0.0196078, 0, 1)
+offset_left = 346.5
+offset_top = -481.75
+offset_right = 440.5
+offset_bottom = -474.75
+tooltip_text = "Tree current health"
+max_value = 200.0
+step = 1.0
+value = 200.0
+show_percentage = false
+
+[node name="Tree" type="Sprite2D" parent="Baum"]
 position = Vector2(391, -445)
 texture = ExtResource("1_q4dmg")
 hframes = 5

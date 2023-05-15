@@ -10,7 +10,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	print(get_tree().current_scene.name)
 	if(get_tree().current_scene.name == "Fight_level"):
 		$HealthBar.visible = false
 		$MiniMap.visible = false

@@ -7,6 +7,7 @@ var player_alive = true
 @onready var stateMachine = $AnimationTree.get("parameters/playback")
 
 func _physics_process(_delta):
+	$HealthBarFox.value = global.health
 	if (Input.is_action_just_pressed("attack") and player_alive):
 		stateMachine.travel("Attack")
 		attack.emit(15)

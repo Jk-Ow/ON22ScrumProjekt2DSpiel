@@ -503,7 +503,7 @@ graph_offset = Vector2(7, -10)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_jpbj0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wxvmf"]
-radius = 39.0
+radius = 52.0096
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6rkc"]
 size = Vector2(21, 16)
