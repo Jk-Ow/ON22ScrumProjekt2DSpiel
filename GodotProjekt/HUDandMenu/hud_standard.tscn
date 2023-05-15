@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dndna8dhjjrun"]
+[gd_scene load_steps=8 format=3 uid="uid://dndna8dhjjrun"]
 
 [ext_resource type="Texture2D" uid="uid://bb55i8y4xb1qd" path="res://GrafikenUndAssets/hud/heart_HUD.png" id="1_5rtde"]
 [ext_resource type="Script" path="res://Code/hud_standard.gd" id="1_ofc6r"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bcvohvobqq7o4" path="res://GrafikenUndAssets/hud/Pixeldust.ttf" id="3_lopxq"]
 [ext_resource type="Texture2D" uid="uid://bxmy4r68a0bm0" path="res://GrafikenUndAssets/hud/menu_HUD.png" id="4_bgsvg"]
 [ext_resource type="Texture2D" uid="uid://bkmuqmjb88k4b" path="res://GrafikenUndAssets/hud/heart_skaleAnimated.png" id="6_tnjqq"]
+[ext_resource type="Texture2D" uid="uid://by8surv7kc4u0" path="res://GrafikenUndAssets/hud/miniMap.png" id="7_c7i0t"]
 
 [node name="hud_standard" type="CanvasLayer"]
 process_mode = 3
@@ -89,7 +90,7 @@ grow_vertical = 2
 tooltip_text = "Menu"
 texture = ExtResource("4_bgsvg")
 
-[node name="PanelContainer" type="AspectRatioContainer" parent="."]
+[node name="HealthBar" type="AspectRatioContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -99,7 +100,7 @@ offset_right = -8.0
 offset_bottom = 64.0
 grow_horizontal = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="HealthBar"]
 position = Vector2(168, 24)
 scale = Vector2(5.03409, 5.03409)
 texture = ExtResource("6_tnjqq")
@@ -120,5 +121,19 @@ theme_override_fonts/font = ExtResource("3_lopxq")
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MiniMap" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -248.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("7_c7i0t")
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

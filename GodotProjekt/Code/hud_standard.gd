@@ -10,6 +10,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	print(get_tree().current_scene.name)
+	if(get_tree().current_scene.name == "Fight_level"):
+		$HealthBar.visible = false
+		$MiniMap.visible = false
+	else:
+		$HealthBar.visible = true
+		$MiniMap.visible = true
 	if(global.show_menu):
 		self.visible = false
 	else:
@@ -21,9 +28,9 @@ func _on_player_update_health_plants(amount):
 func _on_player_update_health(remaining_health):
 	$current_health.text = str(remaining_health)
 	if(remaining_health <= 0):
-		$PanelContainer/Sprite2D.set_frame(10)
+		$HealthBar/Sprite2D.set_frame(10)
 	else:
-		$PanelContainer/Sprite2D.set_frame(10 - floor(remaining_health/10))
+		$HealthBar/Sprite2D.set_frame(10 - floor(remaining_health/10))
 
 
 func _on_menu_pressed():
