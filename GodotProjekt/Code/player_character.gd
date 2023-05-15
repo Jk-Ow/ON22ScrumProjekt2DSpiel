@@ -83,6 +83,7 @@ func play_walk_sound():
 
 func die():
 	$AnimationTree.get("parameters/playback").travel("death")
+	$DeathSound.play()
 
 func _on_attack_cooldown_timeout():
 	cooldown = true
@@ -95,7 +96,7 @@ func player():
 
 func _on_mob_attacking(damage):
 	global.health -= damage
-	
+	$AnimationTree.get("parameters/playback").travel("hurt")
 
 func _on_give_health_plant():
 	if (global.health_plant_amount < 10):

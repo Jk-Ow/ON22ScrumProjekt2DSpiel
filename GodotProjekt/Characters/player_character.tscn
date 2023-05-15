@@ -1,10 +1,11 @@
-[gd_scene load_steps=50 format=3 uid="uid://crblx0dm6xdi4"]
+[gd_scene load_steps=51 format=3 uid="uid://crblx0dm6xdi4"]
 
 [ext_resource type="Script" path="res://Code/player_character.gd" id="1_a4t8y"]
 [ext_resource type="Texture2D" uid="uid://dkrg4ytewhsco" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="2_5utlh"]
 [ext_resource type="AudioStream" uid="uid://d2yoi6lj38lxd" path="res://GrafikenUndAssets/Sounds/Kämpfen/Swoosh-cropped.mp3" id="3_yt3yb"]
 [ext_resource type="AudioStream" uid="uid://ci887q7v1iv46" path="res://GrafikenUndAssets/Sounds/Laufen/concrete-footsteps-6752.mp3" id="4_hq2ic"]
 [ext_resource type="AudioStream" uid="uid://bdepc5oxraj7j" path="res://GrafikenUndAssets/Sounds/Heilen/mixkit-video-game-health-recharge-2837.wav" id="5_d0kjt"]
+[ext_resource type="AudioStream" uid="uid://dl3a3q8b04yop" path="res://GrafikenUndAssets/Sounds/Hurt/mixkit-player-losing-or-failing-2042.wav" id="6_25435"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_famgv"]
 size = Vector2(9, 18)
@@ -379,7 +380,7 @@ states/death/position = Vector2(554, 131)
 states/hurt/node = SubResource("AnimationNodeAnimation_wl71l")
 states/hurt/position = Vector2(345, 42)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5m4li"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_0ghxi"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3e6b0"), "Idle", "hurt", SubResource("AnimationNodeStateMachineTransition_ghu0u"), "hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_8o8cm"), "Idle", "death", SubResource("AnimationNodeStateMachineTransition_4325t"), "death", "End", SubResource("AnimationNodeStateMachineTransition_ehysp")]
-graph_offset = Vector2(8.69915, -90.8386)
+graph_offset = Vector2(-14.3008, -11.8386)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_xpja6"]
 
@@ -436,6 +437,10 @@ volume_db = -15.0
 [node name="HealSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_d0kjt")
 volume_db = -25.0
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_25435")
+volume_db = -15.0
 
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
