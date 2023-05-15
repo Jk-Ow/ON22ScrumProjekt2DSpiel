@@ -27,9 +27,9 @@ func update_hud():
 
 func new_game():
 	if(start_new_game):
+		player_position = start_position
 		health_plant_amount = 0
-		start_new_game = false
 		health = 100
 		evil_tree_alive = true
-		player_position = start_position
 		get_tree().change_scene_to_file("res://Levels/start_level.tscn")
+		start_new_game = false

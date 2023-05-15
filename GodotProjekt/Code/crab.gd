@@ -57,7 +57,7 @@ func move_to_player():
 
 func attack_player():
 	if(alive):
-		if(cooldown and player_in_range):
+		if(cooldown and player_in_range and global.health > 0):
 			mob_attacking.emit(5)
 			cooldown = false
 			$attack_cooldown.start()

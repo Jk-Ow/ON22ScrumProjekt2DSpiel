@@ -23,10 +23,11 @@ func _ready():
 			item.give_health_plant.connect(_on_give_health_plant)
 
 func _physics_process(_delta):
-	get_direction_and_speed()
-	play_walk_sound()
-	player()
-	if(global.health<=0):
+	if(global.health>0):
+		get_direction_and_speed()
+		play_walk_sound()
+		player()
+	else:
 		die()
 
 func attack():
@@ -102,4 +103,6 @@ func _on_heal_cooldown_timeout():
 
 func _on_animation_tree_animation_finished(anim_name):
 	if(anim_name == "death"):
+		$AnimationTree.set_active(false)
+		await get_tree().create_timer(5.0).timeout
 		global.start_new_game = true

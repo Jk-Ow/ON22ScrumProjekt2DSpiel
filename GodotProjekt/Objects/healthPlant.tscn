@@ -89,4 +89,4 @@ position = Vector2(-1, 4)
 shape = SubResource("CapsuleShape2D_qkrem")
 
 [node name="regrow_time" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 120.0

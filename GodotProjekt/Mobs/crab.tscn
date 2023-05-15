@@ -551,8 +551,8 @@ position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_w6rkc")
 
 [node name="attack_cooldown" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 0.5
 
 [node name="respawn_timer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 150.0
 one_shot = true
