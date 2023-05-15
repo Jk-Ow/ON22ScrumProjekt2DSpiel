@@ -5,10 +5,8 @@ extends CharacterBody2D
 var cooldown = true;
 var current_weapon_damage = 20
 signal attacking(damage)
-var health = 100
 var input_direction
 var last_direction
-var health_plants = 1
 var heal_cooldown = true
 @onready var root_node = get_node("/root/startLevel")
 @onready var enemy_nodes = root_node.get_tree().get_nodes_in_group("enemy")
@@ -17,7 +15,6 @@ var heal_cooldown = true
 func _ready():
 	if(global.player_position != Vector2.ZERO):
 		self.position = global.player_position
-	health_plants = global.health_plant_amount
 	for item in enemy_nodes:
 		if(!item.mob_attacking.is_connected(_on_mob_attacking)):
 			item.mob_attacking.connect(_on_mob_attacking)
@@ -26,11 +23,10 @@ func _ready():
 			item.give_health_plant.connect(_on_give_health_plant)
 
 func _physics_process(_delta):
-	update_hud()
 	get_direction_and_speed()
 	play_walk_sound()
 	player()
-	if(health<=0):
+	if(global.health<=0):
 		die()
 
 func attack():
@@ -46,13 +42,13 @@ func attack():
 			attacking.emit(current_weapon_damage)
 
 func heal():
-	if(Input.is_action_just_pressed("heal") and health_plants > 0 and heal_cooldown):
-		health_plants -= 1
-		health += 30
+	if(Input.is_action_just_pressed("heal") and global.health_plant_amount > 0 and heal_cooldown):
+		global.health_plant_amount -= 1
+		global.health += 30
 		heal_cooldown = false
 		$heal_cooldown.start()
-		if(health > 100):
-			health = 100
+		if(global.health > 100):
+			global.health = 100
 
 func animate():
 	if cooldown:
@@ -81,10 +77,6 @@ func play_walk_sound():
 	if(input_direction != Vector2.ZERO and !$WalkSound.playing):
 		$WalkSound.play()
 
-func update_hud():
-	global.health_plant_amount = health_plants
-	global.health = health
-
 func die():
 	pass
 
@@ -98,13 +90,11 @@ func player():
 	move_and_slide()
 
 func _on_mob_attacking(damage):
-	health -= damage
-	print(health)
+	global.health -= damage
 
 func _on_give_health_plant():
-	if (health_plants < 10):
-		health_plants += 1
-	print(health_plants)
+	if (global.health_plant_amount < 10):
+		global.health_plant_amount += 1
 
 func _on_heal_cooldown_timeout():
 	heal_cooldown = true

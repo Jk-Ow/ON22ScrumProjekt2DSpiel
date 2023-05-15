@@ -1,6 +1,7 @@
 extends Node2D
 
-var health_plant_amount = 0
+var health_plant_amount
+var start_new_game = true
 var health
 var show_menu = true
 var start_position = Vector2(-191, 830.75)
@@ -14,15 +15,21 @@ signal update_health(health_remaining:int)
 @onready var enemy = base_level.get_tree().get_nodes_in_group("enemy")
 
 func _ready():
-	player_position = player.position
-	print(get_tree().current_scene.name)
-	print(player.position)
+	new_game()
 	
 func _process(_delta):
-	if(health > 100):
-		health = 100
+	new_game()
 	update_hud()
 
 func update_hud():
 	update_health_plants.emit(health_plant_amount)
 	update_health.emit(health)
+
+func new_game():
+	if(start_new_game):
+		health_plant_amount = 0
+		start_new_game = false
+		health = 100
+		evil_tree_alive = true
+		player_position = start_position
+		get_tree().change_scene_to_file("res://Levels/start_level.tscn")

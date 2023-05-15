@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bxmy4r68a0bm0" path="res://GrafikenUndAssets/hud/menu_HUD.png" id="4_bgsvg"]
 [ext_resource type="Texture2D" uid="uid://bkmuqmjb88k4b" path="res://GrafikenUndAssets/hud/heart_skaleAnimated.png" id="6_tnjqq"]
 
-[node name="Node2D" type="CanvasLayer"]
+[node name="hud_standard" type="CanvasLayer"]
+process_mode = 3
 follow_viewport_scale = 0.25
 script = ExtResource("1_ofc6r")
 metadata/_edit_vertical_guides_ = [1600.0]
@@ -119,3 +120,5 @@ theme_override_fonts/font = ExtResource("3_lopxq")
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

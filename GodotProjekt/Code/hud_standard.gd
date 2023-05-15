@@ -24,3 +24,8 @@ func _on_player_update_health(remaining_health):
 		$PanelContainer/Sprite2D.set_frame(10)
 	else:
 		$PanelContainer/Sprite2D.set_frame(10 - floor(remaining_health/10))
+
+
+func _on_menu_pressed():
+	self.visible = false
+	global.show_menu = true

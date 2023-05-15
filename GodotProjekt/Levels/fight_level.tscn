@@ -916,7 +916,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_6kxco")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_0wr0i")
-volume_db = -40.294
+volume_db = -30.0
 
 [connection signal="attack" from="Fuchs" to="Baum" method="_on_fuchs_attack"]
 [connection signal="mob_attacking" from="Baum" to="Fuchs" method="_on_baum_mob_attacking"]

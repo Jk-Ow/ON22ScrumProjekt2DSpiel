@@ -84,6 +84,7 @@ _data = {
 }
 
 [node name="Menu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_7i5ov")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -195,3 +196,6 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_u4lcx")
 }
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
