@@ -1,8 +1,8 @@
 [gd_scene load_steps=47 format=3 uid="uid://dnu0br3r56y32"]
 
-[ext_resource type="Texture2D" uid="uid://yuvad2htnaq" path="res://GrafikenUndAssets/Mobs/Slime_Spritesheet.png" id="1_n410h"]
+[ext_resource type="Texture2D" uid="uid://cj5tytj73ljev" path="res://GrafikenUndAssets/Mobs/Slime_Spritesheet.png" id="1_n410h"]
 [ext_resource type="Script" path="res://Code/slime.gd" id="1_u2b5x"]
-[ext_resource type="AudioStream" uid="uid://b7g80k2b0eo3l" path="res://GrafikenUndAssets/Sounds/slime/jump_c_02-102843.mp3" id="3_1asgl"]
+[ext_resource type="AudioStream" uid="uid://smy3gsrlr1uy" path="res://GrafikenUndAssets/Sounds/slime/jump_c_02-102843.mp3" id="3_1asgl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0aijy"]
 size = Vector2(27, 23)
@@ -23,6 +23,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [12, 13]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ewrle"]
 resource_name = "Idle_front"
@@ -40,6 +55,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_mslo6"]
 resource_name = "Idle_left"
@@ -57,6 +87,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [4, 5]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_cd1ks"]
 resource_name = "Idle_right"
@@ -74,6 +119,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [8, 9]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_8f3wo"]
 length = 0.001
@@ -105,6 +165,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [14]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_1x02l"]
 resource_name = "alert_front"
@@ -121,6 +196,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_yafnr"]
 resource_name = "alert_left"
@@ -137,6 +227,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [6]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_lnfi6"]
 resource_name = "alert_right"
@@ -153,6 +258,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [10]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_yyrfs"]
 resource_name = "death"
@@ -185,6 +305,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [15]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_6qbwy"]
 resource_name = "hurt_front"
@@ -201,6 +336,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [3]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_35pcn"]
 resource_name = "hurt_left"
@@ -217,6 +367,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [7]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_u2xwn"]
 resource_name = "hurt_right"
@@ -233,6 +398,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [11]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_1asgl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vod3l"]
 _data = {
@@ -415,10 +595,9 @@ one_shot = true
 wait_time = 150.0
 one_shot = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(0.997797, 0.996552)
-stream = ExtResource("3_1asgl")
-attenuation = 4.0
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -15.0
+attenuation = 10.0
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]

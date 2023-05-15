@@ -1,11 +1,11 @@
 [gd_scene load_steps=51 format=3 uid="uid://crblx0dm6xdi4"]
 
 [ext_resource type="Script" path="res://Code/player_character.gd" id="1_a4t8y"]
-[ext_resource type="Texture2D" uid="uid://dkrg4ytewhsco" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="2_5utlh"]
-[ext_resource type="AudioStream" uid="uid://d2yoi6lj38lxd" path="res://GrafikenUndAssets/Sounds/Kämpfen/Swoosh-cropped.mp3" id="3_yt3yb"]
-[ext_resource type="AudioStream" uid="uid://ci887q7v1iv46" path="res://GrafikenUndAssets/Sounds/Laufen/concrete-footsteps-6752.mp3" id="4_hq2ic"]
-[ext_resource type="AudioStream" uid="uid://bdepc5oxraj7j" path="res://GrafikenUndAssets/Sounds/Heilen/mixkit-video-game-health-recharge-2837.wav" id="5_d0kjt"]
-[ext_resource type="AudioStream" uid="uid://dl3a3q8b04yop" path="res://GrafikenUndAssets/Sounds/Hurt/mixkit-player-losing-or-failing-2042.wav" id="6_25435"]
+[ext_resource type="Texture2D" uid="uid://owtyvqp0uxrp" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="2_5utlh"]
+[ext_resource type="AudioStream" uid="uid://c00htlfivjol5" path="res://GrafikenUndAssets/Sounds/Kämpfen/Swoosh-cropped.mp3" id="3_yt3yb"]
+[ext_resource type="AudioStream" uid="uid://d0lfc87seyrl3" path="res://GrafikenUndAssets/Sounds/Laufen/concrete-footsteps-6752.mp3" id="4_hq2ic"]
+[ext_resource type="AudioStream" uid="uid://lafv1tf8xvkp" path="res://GrafikenUndAssets/Sounds/Heilen/mixkit-video-game-health-recharge-2837.wav" id="5_d0kjt"]
+[ext_resource type="AudioStream" uid="uid://sa0cc3ddn6ji" path="res://GrafikenUndAssets/Sounds/Hurt/mixkit-player-losing-or-failing-2042.wav" id="6_25435"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_famgv"]
 size = Vector2(9, 18)

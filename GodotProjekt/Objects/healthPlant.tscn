@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ca3r145kv8vj"]
 
-[ext_resource type="Texture2D" uid="uid://c08vkl3d88k7r" path="res://GrafikenUndAssets/veggi/health_plant.png" id="1_h4d2y"]
+[ext_resource type="Texture2D" uid="uid://vdsqurlkq0mf" path="res://GrafikenUndAssets/veggi/health_plant.png" id="1_h4d2y"]
 [ext_resource type="Script" path="res://Code/healthPlant.gd" id="1_ukuap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dqj2"]

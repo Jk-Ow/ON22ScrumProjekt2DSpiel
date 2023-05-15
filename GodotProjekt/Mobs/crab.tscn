@@ -1,8 +1,8 @@
 [gd_scene load_steps=62 format=3 uid="uid://b0se0hwpv45r7"]
 
-[ext_resource type="Texture2D" uid="uid://lr5ovdy2a5j6" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
+[ext_resource type="Texture2D" uid="uid://dpq4o8n3uo0ol" path="res://GrafikenUndAssets/Mobs/crab_spritesheet.png" id="1_dc3m8"]
 [ext_resource type="Script" path="res://Code/crab.gd" id="1_hxki0"]
-[ext_resource type="AudioStream" uid="uid://cfolxt6m48neu" path="res://GrafikenUndAssets/Sounds/Krabben/running-on-grass-with-wet-feet-7030.mp3" id="3_wp6r0"]
+[ext_resource type="AudioStream" uid="uid://x1thpomgrx3s" path="res://GrafikenUndAssets/Sounds/Krabben/running-on-grass-with-wet-feet-7030.mp3" id="3_wp6r0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui8i0"]
 size = Vector2(15.0186, 15.5479)
