@@ -26,10 +26,10 @@ func _on_baum_mob_attacking(damage):
 		stateMachine.travel("Block")
 	else:
 		global.health -= damage
-	if(global.health > 0):
-		stateMachine.travel("Hurt")
-	else:
-		stateMachine.travel("Death")
+		if(global.health > 0):
+			stateMachine.travel("Hurt")
+		else:
+			stateMachine.travel("Death")
 
 func attacking():
 	if (global.health > 0 and attacked_on_time):
