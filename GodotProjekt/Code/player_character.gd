@@ -63,6 +63,7 @@ func animate():
 			$AnimationTree.get("parameters/playback").travel("Walk")
 			$AnimationTree.set("parameters/Idle/blend_position", input_direction)
 			$AnimationTree.set("parameters/Walk/blend_position", input_direction)
+			$AnimationTree.set("parameters/Hurt/blend_position", input_direction)
 
 func get_direction_and_speed():
 	input_direction = Vector2(
@@ -95,7 +96,7 @@ func player():
 
 func _on_mob_attacking(damage):
 	global.health -= damage
-	$AnimationTree.get("parameters/playback").travel("hurt")
+	$AnimationTree.get("parameters/playback").travel("Hurt")
 
 func _on_give_health_plant():
 	if (global.health_plant_amount < 10):
