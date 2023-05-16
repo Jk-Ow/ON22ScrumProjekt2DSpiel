@@ -83,7 +83,6 @@ func play_walk_sound():
 
 func die():
 	$AnimationTree.get("parameters/playback").travel("death")
-	$DeathSound.play()
 
 func _on_attack_cooldown_timeout():
 	cooldown = true
@@ -108,6 +107,8 @@ func _on_heal_cooldown_timeout():
 
 func _on_animation_tree_animation_finished(anim_name):
 	if(anim_name == "death"):
+		if(!$DeathSound.playing):
+			$DeathSound.play()
 		$AnimationTree.set_active(false)
 		await get_tree().create_timer(5.0).timeout
 		global.start_new_game = true
