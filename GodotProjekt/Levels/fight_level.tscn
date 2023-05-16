@@ -986,7 +986,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Attack" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 one_shot = true
 
 [node name="WaitForBlock" type="Timer" parent="."]
@@ -994,7 +994,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Block" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 one_shot = true
 
 [connection signal="attack" from="Fuchs" to="Baum" method="_on_fuchs_attack"]
