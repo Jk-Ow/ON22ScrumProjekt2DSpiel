@@ -20,6 +20,8 @@ func _on_fuchs_attack(damage):
 	else:
 		health -= damage
 		stateMachine.travel("Hurt")
-		await get_tree().create_timer(1.0).timeout
+
+func _on_block_timeout():
+	if(health > 0):
 		stateMachine.travel("Attack")
 		mob_attacking.emit(20)

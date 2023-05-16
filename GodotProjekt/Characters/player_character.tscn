@@ -451,6 +451,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="heal_cooldown" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_yt3yb")

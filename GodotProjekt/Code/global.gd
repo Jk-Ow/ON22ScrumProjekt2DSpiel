@@ -15,6 +15,7 @@ signal update_health(health_remaining:int)
 @onready var enemy = base_level.get_tree().get_nodes_in_group("enemy")
 
 func _ready():
+	randomize()
 	new_game()
 	
 func _process(_delta):

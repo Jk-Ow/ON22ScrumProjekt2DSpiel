@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bpeeeigb4rj10"]
+[gd_scene load_steps=64 format=3 uid="uid://bpeeeigb4rj10"]
 
 [ext_resource type="Texture2D" uid="uid://ddrugkvk8mffs" path="res://GrafikenUndAssets/TileMaps/SandTiles_Gras_vollständig.png" id="1_6owqb"]
 [ext_resource type="Script" path="res://Code/fight_level.gd" id="1_lnd4k"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bsdds1w2mxlny" path="res://GrafikenUndAssets/Characters/fuchs_full_spritesheet.png" id="8_7bcbo"]
 [ext_resource type="AudioStream" uid="uid://capyh3100jr67" path="res://GrafikenUndAssets/Sounds/Hintergrundmusik/ES_Grey Ghost - Autohacker.mp3" id="10_0wr0i"]
 [ext_resource type="Script" path="res://Code/BaumRB.gd" id="10_tc7g5"]
+[ext_resource type="Texture2D" uid="uid://bwwcf5bemx4x" path="res://GrafikenUndAssets/hud/Kampfsystem_signale.png" id="13_op4l0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ah63r"]
 texture = ExtResource("1_6owqb")
@@ -625,9 +626,26 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_rv18s"]
+resource_name = "Block"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3mwm5"]
 _data = {
 "Attack": SubResource("Animation_8eruw"),
+"Block": SubResource("Animation_rv18s"),
 "Death": SubResource("Animation_myj50"),
 "Hurt": SubResource("Animation_umqny"),
 "Idle": SubResource("Animation_hon4e"),
@@ -636,6 +654,9 @@ _data = {
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x47g3"]
 animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yx8ov"]
+animation = &"Block"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nq8ju"]
 animation = &"Death"
@@ -667,9 +688,17 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_35bo0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2adbn"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_oaxoa"]
 states/Attack/node = SubResource("AnimationNodeAnimation_x47g3")
-states/Attack/position = Vector2(340, 178)
+states/Attack/position = Vector2(285, 176)
+states/Block/node = SubResource("AnimationNodeAnimation_yx8ov")
+states/Block/position = Vector2(413, 179)
 states/Death/node = SubResource("AnimationNodeAnimation_nq8ju")
 states/Death/position = Vector2(611, 100)
 states/End/position = Vector2(892, 100)
@@ -677,7 +706,7 @@ states/Hurt/node = SubResource("AnimationNodeAnimation_14ow0")
 states/Hurt/position = Vector2(340, 27)
 states/Idle/node = SubResource("AnimationNodeAnimation_k6s26")
 states/Idle/position = Vector2(340, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qb4q0"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_75jyv"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_min6e"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_quhim"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_u85l0"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_1y2yl"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_q4i88")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qb4q0"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_75jyv"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_min6e"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_quhim"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_u85l0"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_1y2yl"), "Death", "End", SubResource("AnimationNodeStateMachineTransition_q4i88"), "Idle", "Block", SubResource("AnimationNodeStateMachineTransition_35bo0"), "Block", "Idle", SubResource("AnimationNodeStateMachineTransition_2adbn")]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_gq6ec"]
 
@@ -863,7 +892,7 @@ layer_4/tile_data = PackedInt32Array(-1179641, 3, 0, -1114105, 3, 0, -1048569, 3
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(345, -431)
+position = Vector2(356, -445.75)
 
 [node name="Fuchs" type="StaticBody2D" parent="."]
 script = ExtResource("8_4x3hu")
@@ -900,6 +929,10 @@ tree_root = SubResource("AnimationNodeStateMachine_oaxoa")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_gq6ec")
+
+[node name="HealCooldown" type="Timer" parent="Fuchs"]
+wait_time = 5.0
+one_shot = true
 
 [node name="Baum" type="StaticBody2D" parent="."]
 script = ExtResource("10_tc7g5")
@@ -941,6 +974,39 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_6kxco")
 stream = ExtResource("10_0wr0i")
 volume_db = -30.0
 
+[node name="QuickLight" type="Sprite2D" parent="."]
+position = Vector2(312, -478.5)
+scale = Vector2(1.53125, 1.53125)
+texture = ExtResource("13_op4l0")
+hframes = 3
+frame = 1
+
+[node name="WaitForAttack" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Attack" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="WaitForBlock" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Block" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="attack" from="Fuchs" to="Baum" method="_on_fuchs_attack"]
 [connection signal="animation_finished" from="Fuchs/AnimationTree" to="Fuchs" method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="Fuchs/HealCooldown" to="Fuchs" method="_on_heal_cooldown_timeout"]
 [connection signal="mob_attacking" from="Baum" to="Fuchs" method="_on_baum_mob_attacking"]
+[connection signal="timeout" from="WaitForAttack" to="." method="_on_wait_for_attack_timeout"]
+[connection signal="timeout" from="WaitForAttack" to="Fuchs" method="_on_wait_for_attack_timeout"]
+[connection signal="timeout" from="Attack" to="." method="_on_attack_timeout"]
+[connection signal="timeout" from="Attack" to="Fuchs" method="_on_attack_timeout"]
+[connection signal="timeout" from="WaitForBlock" to="." method="_on_wait_for_block_timeout"]
+[connection signal="timeout" from="WaitForBlock" to="Fuchs" method="_on_wait_for_block_timeout"]
+[connection signal="timeout" from="Block" to="." method="_on_block_timeout"]
+[connection signal="timeout" from="Block" to="Fuchs" method="_on_block_timeout"]
+[connection signal="timeout" from="Block" to="Baum" method="_on_block_timeout"]
