@@ -120,7 +120,7 @@ shape = SubResource("RectangleShape2D_ygh74")
 [node name="AttentionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttentionArea"]
-position = Vector2(1, 10)
+position = Vector2(-3, 9)
 shape = SubResource("CircleShape2D_xtbid")
 
 [node name="ChirpSound" type="AudioStreamPlayer2D" parent="."]
