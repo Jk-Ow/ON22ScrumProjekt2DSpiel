@@ -25,6 +25,7 @@ func _ready():
 	global.health = starting_health
 
 func _physics_process(_delta):
+	print(Input.is_action_just_pressed("attack"))
 	if(global.health>0):
 		get_direction_and_speed()
 		play_walk_sound()
