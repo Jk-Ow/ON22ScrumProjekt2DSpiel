@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://0qpvj6jwhewb"]
 
 [ext_resource type="Script" path="res://Code/birdo_the_gourmet.gd" id="1_3b8ls"]
-[ext_resource type="Texture2D" uid="uid://dqu3p70xv7ns6" path="res://GrafikenUndAssets/Mobs/birdo.png" id="2_08wc7"]
-[ext_resource type="AudioStream" uid="uid://dh0ajlj6u1lxo" path="res://GrafikenUndAssets/Sounds/Vogelgezwitscher/birds-19624.mp3" id="3_4x2w0"]
+[ext_resource type="Texture2D" uid="uid://ckkldmqrlau7g" path="res://GrafikenUndAssets/Mobs/birdo.png" id="2_08wc7"]
+[ext_resource type="AudioStream" uid="uid://cia3gf48wy1px" path="res://GrafikenUndAssets/Sounds/Vogelgezwitscher/birds-19624.mp3" id="3_4x2w0"]
 
 [sub_resource type="Animation" id="Animation_vd6bq"]
 length = 0.001

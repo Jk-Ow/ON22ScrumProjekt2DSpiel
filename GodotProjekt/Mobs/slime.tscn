@@ -1,8 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://dnu0br3r56y32"]
+[gd_scene load_steps=48 format=3 uid="uid://dnu0br3r56y32"]
 
-[ext_resource type="Texture2D" uid="uid://cj5tytj73ljev" path="res://GrafikenUndAssets/Mobs/Slime_Spritesheet.png" id="1_n410h"]
+[ext_resource type="Texture2D" uid="uid://nfidelc2iu8r" path="res://GrafikenUndAssets/Mobs/Slime_Spritesheet.png" id="1_n410h"]
 [ext_resource type="Script" path="res://Code/slime.gd" id="1_u2b5x"]
-[ext_resource type="AudioStream" uid="uid://smy3gsrlr1uy" path="res://GrafikenUndAssets/Sounds/slime/jump_c_02-102843.mp3" id="3_1asgl"]
+[ext_resource type="AudioStream" uid="uid://cdrlugvkscvai" path="res://GrafikenUndAssets/Sounds/slime/jump_c_02-102843.mp3" id="3_1asgl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0aijy"]
 size = Vector2(27, 23)
@@ -545,6 +545,8 @@ radius = 85.6154
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x3fn"]
 radius = 13.0
 
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_mo545"]
+
 [node name="slime" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 script = ExtResource("1_u2b5x")
@@ -596,6 +598,7 @@ wait_time = 150.0
 one_shot = true
 
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamPolyphonic_mo545")
 volume_db = -15.0
 attenuation = 10.0
 
