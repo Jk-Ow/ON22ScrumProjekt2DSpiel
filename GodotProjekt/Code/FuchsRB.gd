@@ -23,20 +23,18 @@ func _physics_process(_delta):
 
 func _on_baum_mob_attacking(damage):
 	if(blocked_on_time):
-		damage -= (randi() % 5 + 13)
 		stateMachine.travel("Block")
-	global.health -= damage
+	else:
+		global.health -= damage
 	if(global.health > 0):
 		stateMachine.travel("Hurt")
 	else:
 		stateMachine.travel("Death")
 
 func attacking():
-	if (global.health > 0):
-		var dealt_damage = weapon_damage
+	if (global.health > 0 and attacked_on_time):
+		var dealt_damage = weapon_damage + (randi() % 3 + 7)
 		stateMachine.travel("Attack")
-		if(attacked_on_time):
-			dealt_damage = weapon_damage + (randi() % 3 + 7)
 		attack.emit(dealt_damage)
 
 func healing():

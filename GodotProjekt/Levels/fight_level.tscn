@@ -562,6 +562,22 @@ tracks/0/keys = {
 "values": [20, 21]
 }
 
+[sub_resource type="Animation" id="Animation_rv18s"]
+resource_name = "Block"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
 [sub_resource type="Animation" id="Animation_myj50"]
 resource_name = "Death"
 length = 0.4
@@ -624,22 +640,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_rv18s"]
-resource_name = "Block"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [20]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3mwm5"]
@@ -986,7 +986,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Attack" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.2
 one_shot = true
 
 [node name="WaitForBlock" type="Timer" parent="."]
@@ -994,7 +994,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Block" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.2
 one_shot = true
 
 [connection signal="attack" from="Fuchs" to="Baum" method="_on_fuchs_attack"]
